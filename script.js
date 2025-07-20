@@ -12,12 +12,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let currentPlaylistIndex = null;
 
-  // Função para limpar lista de músicas
   function clearMusicList() {
     musicList.innerHTML = "";
   }
 
-  // Função para montar lista de playlists
   function renderPlaylists(data) {
     playlistsView.innerHTML = "";
     data.playlists.forEach((playlist, i) => {
@@ -29,7 +27,6 @@ window.addEventListener("DOMContentLoaded", () => {
       coverImg.alt = playlist.nome;
       coverImg.classList.add("playlist-cover");
 
-      // Ícone playlist sobreposto
       const iconBtn = document.createElement("img");
       iconBtn.src =
         "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400";
@@ -52,26 +49,21 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Função para abrir uma playlist e mostrar suas músicas
   function openPlaylist(index) {
     currentPlaylistIndex = index;
     const playlist = data.playlists[index];
 
-    // Atualiza a view
     playlistsView.classList.add("hidden");
     musicsView.classList.remove("hidden");
 
-    // Atualiza o header da playlist
     playlistCover.src = playlist.capa;
     playlistName.textContent = playlist.nome;
     playlistIcon.style.opacity = "0.8";
 
-    // Atualiza background da view de músicas para a capa da playlist
     musicsView.style.backgroundImage = `url(${playlist.capa})`;
 
     clearMusicList();
 
-    // Monta lista de músicas
     playlist.musicas.forEach((musica, i) => {
       const li = document.createElement("li");
       li.textContent = musica.titulo;
@@ -82,26 +74,22 @@ window.addEventListener("DOMContentLoaded", () => {
       musicList.appendChild(li);
     });
 
-    // Toca a primeira música automaticamente
     playMusic(0);
     setActiveMusic(0);
   }
 
-  // Toca música pelo índice
   function playMusic(musicIndex) {
     const playlist = data.playlists[currentPlaylistIndex];
     audio.src = playlist.musicas[musicIndex].arquivo;
     audio.play();
   }
 
-  // Destaca música ativa
   function setActiveMusic(musicIndex) {
     [...musicList.children].forEach((li, i) => {
       li.classList.toggle("active", i === musicIndex);
     });
   }
 
-  // Botão voltar
   backBtn.addEventListener("click", () => {
     musicsView.classList.add("hidden");
     playlistsView.classList.remove("hidden");
@@ -110,9 +98,8 @@ window.addEventListener("DOMContentLoaded", () => {
     audio.src = "";
   });
 
-  // Esconde loader e mostra app após carregar JSON
   let data;
-  fetch("musicas.json")
+  fetch("data/musicas.json")
     .then((res) => res.json())
     .then((json) => {
       data = json;
