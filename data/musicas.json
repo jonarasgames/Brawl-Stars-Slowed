@@ -1,28 +1,16 @@
-{
-  "playlists": [
-    {
-      "nome": "Showdown Tracks",
-      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC81VE5YakNXeUJoTkFna2luY3Q2NC5wbmcifQ:supercell:1I7jKeC3-Q1RQV7dvkCB8yaINjkrq6EbBQDR0Juf3QQ?width=2400",
-      "musicas": [
-        {
-          "titulo": "Showdown Theme (Slowed)",
-          "arquivo": "audios/showdown_theme_slowed.mp3"
-        },
-        {
-          "titulo": "Showdown Battle (Slowed)",
-          "arquivo": "audios/showdown_battle_slowed.mp3"
-        }
-      ]
-    },
-    {
-      "nome": "Brawl Pass Playlist",
-      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9tc0FZbjFLZG9Zbmg3THg5cE1ody5wbmcifQ:supercell:AjL67My6-d2z9WLXX-MO-U_mMxiKf6iefpj5wQHkMJ8?width=2400",
-      "musicas": [
-        {
-          "titulo": "Brawl Pass Theme (Slowed)",
-          "arquivo": "audios/brawl_pass_theme_slowed.mp3"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "title": "Starr Park Theme",
+    "artist": "Supercell",
+    "file": "starr_park.mp3",
+    "cover": "starr_park.jpg",
+    "playlist": "Clássicas"
+  },
+  {
+    "title": "Brawl-o-ween",
+    "artist": "Supercell",
+    "file": "brawloween.mp3",
+    "cover": "brawloween.jpg",
+    "playlist": "Eventos"
+  }
+]

@@ -1,47 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Brawl Stars ● Slowed</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brawl Stars Slowed</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="loader">
-    <img
-      src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC81VE5YakNXeUJoTkFna2luY3Q2NC5wbmcifQ:supercell:1I7jKeC3-Q1RQV7dvkCB8yaINjkrq6EbBQDR0Juf3QQ?width=2400"
-      alt="Loading"
-      class="rotate"
-    />
-  </div>
+  <header>
+    <h1>Brawl Stars Slowed</h1>
+    <input type="text" id="search" placeholder="Buscar música...">
+    <select id="playlistFilter"></select>
+  </header>
 
-  <div id="app" class="hidden">
-    <header>
-      <h1>Brawl Stars ● Slowed</h1>
-    </header>
-
-    <main>
-      <section id="playlists-view" class="view active"></section>
-
-      <section id="musics-view" class="view hidden">
-        <button id="back-btn" title="Voltar para playlists">← Voltar</button>
-        <div id="playlist-header">
-          <img id="playlist-cover" alt="Capa da playlist" />
-          <img
-            id="playlist-icon"
-            alt="Ícone playlist"
-            src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400"
-          />
-          <h2 id="playlist-name"></h2>
-        </div>
-        <ul id="music-list"></ul>
-      </section>
-
-      <footer id="player-footer">
-        <audio id="audio" controls></audio>
-      </footer>
-    </main>
-  </div>
+  <main id="music-list">
+    <div id="loading">🔄 Carregando músicas...</div>
+  </main>
 
   <script src="script.js"></script>
 </body>
