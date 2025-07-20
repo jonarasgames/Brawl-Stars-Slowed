@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brawl Stars Slowed</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brawl Stars Slowed</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Brawl Stars Slowed</h1>
-    <input type="text" id="search" placeholder="Buscar música...">
-    <select id="playlistFilter"></select>
-  </header>
-
-  <main id="music-list">
-    <div id="loading">🔄 Carregando músicas...</div>
-  </main>
-
-  <script src="script.js"></script>
+    <div class="loader" id="loader">
+        <img src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC81VE5YakNXeUJoTkFna2luY3Q2NC5wbmcifQ:supercell:1I7jKeC3-Q1RQV7dvkCB8yaINjkrq6EbBQDR0Juf3QQ?width=2400" alt="Loading...">
+    </div>
+    <div class="container" id="app" style="display: none;">
+        <h1>Brawl Stars Slowed</h1>
+        <input type="text" id="search" placeholder="Buscar música...">
+        <div id="filters"></div>
+        <div id="playlist-container"></div>
+        <div id="player">
+            <img id="cover" src="" alt="Capa">
+            <audio id="audio" controls></audio>
+            <div id="title"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

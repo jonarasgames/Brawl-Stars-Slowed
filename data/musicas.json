@@ -1,16 +1,12 @@
 [
-  {
-    "title": "Starr Park Theme",
-    "artist": "Supercell",
-    "file": "starr_park.mp3",
-    "cover": "starr_park.jpg",
-    "playlist": "Clássicas"
-  },
-  {
-    "title": "Brawl-o-ween",
-    "artist": "Supercell",
-    "file": "brawloween.mp3",
-    "cover": "brawloween.jpg",
-    "playlist": "Eventos"
-  }
+    {
+        "titulo": "Slowed Showdown",
+        "audio": "audio/slowed_showdown.mp3",
+        "capa": "img/showdown.jpg"
+    },
+    {
+        "titulo": "Mystery Beats",
+        "audio": "audio/mystery_beats.mp3",
+        "capa": "img/mystery.jpg"
+    }
 ]
