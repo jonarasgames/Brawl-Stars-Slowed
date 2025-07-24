@@ -1,26 +1,123 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brawl Stars Slowed</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nougat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="loader" id="loader">
-        <img src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC81VE5YakNXeUJoTkFna2luY3Q2NC5wbmcifQ:supercell:1I7jKeC3-Q1RQV7dvkCB8yaINjkrq6EbBQDR0Juf3QQ?width=2400" alt="Loading...">
-    </div>
-    <div class="container" id="app" style="display: none;">
-        <h1>Brawl Stars Slowed</h1>
-        <input type="text" id="search" placeholder="Buscar música...">
-        <div id="filters"></div>
-        <div id="playlist-container"></div>
-        <div id="player">
-            <img id="cover" src="" alt="Capa">
-            <audio id="audio" controls></audio>
-            <div id="title"></div>
+    <div class="background-overlay"></div>
+    <div class="graffiti-overlay"></div>
+    
+    <header class="vandal-header">
+        <div class="ripped-paper-top"></div>
+        <h1 class="title-spray">BRAWL STARS <span class="slowed-spray">SLOWED</span></h1>
+        <div class="spray-drips"></div>
+    </header>
+
+    <main class="main-content">
+        <section class="player-section">
+            <div class="player-container vandal-box">
+                <div class="player-controls">
+                    <div class="song-info">
+                        <img id="current-song-cover" src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400" alt="Capa da música">
+                        <div>
+                            <h2 id="current-song-title">Nenhuma música selecionada</h2>
+                            <p id="current-song-artist"></p>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <span id="current-time">0:00</span>
+                        <input type="range" id="progress-bar" class="progress-bar" value="0">
+                        <span id="duration">0:00</span>
+                    </div>
+                    <div class="controls">
+                        <button id="prev-btn" class="spray-btn">⏮</button>
+                        <button id="play-btn" class="spray-btn play-btn">▶</button>
+                        <button id="next-btn" class="spray-btn">⏭</button>
+                        <button id="volume-btn" class="spray-btn">🔊</button>
+                        <input type="range" id="volume-control" class="volume-control" min="0" max="1" step="0.1" value="0.7">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="countdown-section vandal-box">
+            <h2 class="spray-title">PRÓXIMO LANÇAMENTO</h2>
+            <div class="countdown-container">
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <span class="countdown-label">DIAS</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <span class="countdown-label">HORAS</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span class="countdown-label">MIN</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <span class="countdown-label">SEG</span>
+                    </div>
+                </div>
+                <div class="upcoming-song">
+                    <img id="upcoming-cover" src="" alt="Próximo lançamento">
+                    <div>
+                        <h3 id="upcoming-title"></h3>
+                        <p id="upcoming-date"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="search-container vandal-box">
+                <input type="text" id="search-input" class="spray-input" placeholder="Pesquisar música...">
+                <button id="search-btn" class="spray-btn">🔍</button>
+            </div>
+            <div class="filter-container vandal-box">
+                <select id="playlist-filter" class="spray-select">
+                    <option value="all">Todas as playlists</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="playlists-section">
+            <h2 class="spray-title">PLAYLISTS</h2>
+            <div class="playlists-container" id="playlists-container">
+                <!-- Playlists serão carregadas aqui via JS -->
+            </div>
+        </section>
+
+        <section class="songs-section">
+            <h2 class="spray-title">MÚSICAS</h2>
+            <div class="songs-container" id="songs-container">
+                <!-- Músicas serão carregadas aqui via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="vandal-footer">
+        <div class="ripped-paper-bottom"></div>
+        <p>© 2023 BRAWL STARS SLOWED | TODOS OS DIREITOS RESERVADOS</p>
+        <div class="spray-tags">
+            <span>#SLOWED</span>
+            <span>#REVERB</span>
+            <span>#BRAWLSTARS</span>
         </div>
-    </div>
+    </footer>
+
+    <audio id="audio-player"></audio>
+
     <script src="script.js"></script>
 </body>
 </html>
