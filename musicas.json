@@ -2,83 +2,272 @@
   "musicas": [
     {
       "id": "m1",
-      "titulo": "Brawl Stars Theme (Slowed + Reverb)",
+      "titulo": "You’ve got a Teammate in Me (Menu)",
       "artista": "Supercell",
-      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
-      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-      "duracao": 183,
+      "capa": "https://files.catbox.moe/b4pus9.png",
+      "audio": "https://files.catbox.moe/czpkik.mp3",
+      "duracao": 180,
       "upcoming": false
     },
     {
-      "id": "m2",
-      "titulo": "Trophy Road (Slowed Down)",
+      "id": "m1753390177449",
+      "titulo": "Subway Brawl (In Game)",
       "artista": "Supercell",
-      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
-      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-      "duracao": 215,
+      "capa": "https://files.catbox.moe/qr130x.png",
+      "audio": "https://files.catbox.moe/wbzfk4.mp3",
+      "duracao": 226,
       "upcoming": false
     },
     {
-      "id": "m3",
-      "titulo": "Brawloween (Nightcore Version)",
+      "id": "m1753390496847",
+      "titulo": "The Starr Lounge (In Game)",
       "artista": "Supercell",
-      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
-      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-      "duracao": 198,
+      "capa": "https://files.catbox.moe/xqrghb.png",
+      "audio": "https://files.catbox.moe/xuo82r.mp3",
+      "duracao": 201,
       "upcoming": false
     },
     {
-      "id": "m4",
-      "titulo": "Lunar New Year (Slowed + Bass Boosted)",
+      "id": "m1753390820106",
+      "titulo": "Make Heroes (Menu 1)",
       "artista": "Supercell",
-      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
-      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+      "capa": "https://files.catbox.moe/r6znfn.png",
+      "audio": "https://files.catbox.moe/7xzyaz.mp3",
+      "duracao": 225,
+      "upcoming": false
+    },
+    {
+      "id": "m1753391604441",
+      "titulo": "Mortis' Horror-Torium (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/tnca6b.png",
+      "audio": "https://files.catbox.moe/gygwhs.mp3",
+      "duracao": 200,
+      "upcoming": false
+    },
+    {
+      "id": "m1753391929189",
+      "titulo": "Giftshop Battle (Ingame)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/8e6hj8.png",
+      "audio": "https://files.catbox.moe/cbuu3f.mp3",
+      "duracao": 182,
+      "upcoming": false
+    },
+    {
+      "id": "m1753392172372",
+      "titulo": "Welcome to Starr Park (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/qa4jkp.png",
+      "audio": "https://files.catbox.moe/rni2si.mp3",
+      "duracao": 147,
+      "upcoming": false
+    },
+    {
+      "id": "m1753392306979",
+      "titulo": "Summer of Robots (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/0rtdd8.png",
+      "audio": "https://files.catbox.moe/wkei3s.mp3",
+      "duracao": 193,
+      "upcoming": false
+    },
+    {
+      "id": "m1753392403802",
+      "titulo": "Forbidden Love 02 (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/xpf6s2.png",
+      "audio": "https://files.catbox.moe/o5lhkd.mp3",
+      "duracao": 184,
+      "upcoming": false
+    },
+    {
+      "id": "m1753392564299",
+      "titulo": "Kpop Starr (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/wgm7oa.png",
+      "audio": "https://files.catbox.moe/6zgpad.mp3",
+      "duracao": 295,
+      "upcoming": false
+    },
+    {
+      "id": "m1753392865231",
+      "titulo": "The Robot Factory (Ingame)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/acf8qd.png",
+      "audio": "https://files.catbox.moe/omkhf4.mp3",
+      "duracao": 145,
+      "upcoming": false
+    },
+    {
+      "id": "m1753393094617",
+      "titulo": "Brawl Skirt Chase (Ingame)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/42nmr7.png",
+      "audio": "https://files.catbox.moe/ebu8qh.mp3",
+      "duracao": 173,
+      "upcoming": false
+    },
+    {
+      "id": "m1753393169853",
+      "titulo": "Crush the Kaiju (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/dleqlm.png",
+      "audio": "https://files.catbox.moe/w6i5al.mp3",
+      "duracao": 298,
+      "upcoming": false
+    },
+    {
+      "id": "m1753393268380",
+      "titulo": "Jae-yong, The New Brawler (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/0re3yk.png",
+      "audio": "https://files.catbox.moe/u1bwxf.mp3",
+      "duracao": 125,
+      "upcoming": false
+    },
+    {
+      "id": "m1753393420119",
+      "titulo": "Katana Kingdom (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/lctl0j.png",
+      "audio": "https://files.catbox.moe/ea0tur.mp3",
+      "duracao": 232,
+      "upcoming": false
+    },
+    {
+      "id": "m1753394236489",
+      "titulo": "Kaze, The New Brawler (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/157ka6.png",
+      "audio": "https://files.catbox.moe/psdoq0.mp3",
+      "duracao": 224,
+      "upcoming": false
+    },
+    {
+      "id": "m1753394345580",
+      "titulo": "Basket Brawl (Unused)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/s39dl9.png",
+      "audio": "https://files.catbox.moe/72ngjm.mp3",
+      "duracao": 430,
+      "upcoming": false
+    },
+    {
+      "id": "m1753394514859",
+      "titulo": "Lunar Lantern (Chinese)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/xv7km7.png",
+      "audio": "https://files.catbox.moe/jui70t.mp3",
+      "duracao": 287,
+      "upcoming": false
+    },
+    {
+      "id": "m1753394597946",
+      "titulo": "Punk Brawl (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/cgthqc.png",
+      "audio": "https://files.catbox.moe/fvgbm8.mp3",
+      "duracao": 187,
+      "upcoming": false
+    },
+    {
+      "id": "m1753394695551",
+      "titulo": "The Scrapyard (In Game)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/ndu0d3.png",
+      "audio": "https://files.catbox.moe/3n4r7l.mp3",
+      "duracao": 157,
+      "upcoming": false
+    },
+    {
+      "id": "m1753394803121",
+      "titulo": "Sniper Idol (Chinese)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/daj8f9.png",
+      "audio": "https://files.catbox.moe/1on1yh.mp3",
       "duracao": 227,
+      "upcoming": false
+    },
+    {
+      "id": "m1753394890913",
+      "titulo": "Alli, The New Brawler (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/3trfeg.png",
+      "audio": "https://files.catbox.moe/0ro9oo.mp3",
+      "duracao": 318,
+      "upcoming": false
+    },
+    {
+      "id": "m1753394979832",
+      "titulo": "Trunk, The New Brawler (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/ixmdi6.png",
+      "audio": "https://files.catbox.moe/vfq31f.mp3",
+      "duracao": 271,
+      "upcoming": false
+    },
+    {
+      "id": "m1753395068759",
+      "titulo": "Mushroom Addiction (Ingame)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/5nrir8.png",
+      "audio": "https://files.catbox.moe/msnzk1.mp3",
+      "duracao": 240,
+      "upcoming": false
+    },
+    {
+      "id": "m1753395131934",
+      "titulo": "Boonie Bears (Chinese)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/owghlv.png",
+      "audio": "https://files.catbox.moe/16gtcf.mp3",
+      "duracao": 220,
+      "upcoming": false
+    },
+    {
+      "id": "m1753395250032",
+      "titulo": "Starr Gallery (Chinese)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/w4h8b9.png",
+      "audio": "https://files.catbox.moe/n4wlg6.mp3",
+      "duracao": 180,
+      "upcoming": false
+    },
+    {
+      "id": "m1753395474592",
+      "titulo": "Kenji's Recipe (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/0clzxf.png",
+      "audio": "https://files.catbox.moe/se8pmh.mp3",
+      "duracao": 273,
       "upcoming": true
     },
     {
-      "id": "m5",
-      "titulo": "Summer of Monsters (Slowed Version)",
+      "id": "m1753395706159",
+      "titulo": "Metal Rockstarr (Menu)",
       "artista": "Supercell",
-      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
-      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-      "duracao": 205,
-      "upcoming": false
-    },
-    {
-      "id": "m6",
-      "titulo": "Championship Theme (Slowed + Reverb)",
-      "artista": "Supercell",
-      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
-      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
-      "duracao": 192,
-      "upcoming": false
+      "capa": "https://files.catbox.moe/22l0td.png",
+      "audio": "https://files.catbox.moe/6hfe0p.mp3",
+      "duracao": 234,
+      "upcoming": true
     }
   ],
   "playlists": [
     {
-      "id": "p1",
-      "nome": "Slowed + Reverb",
-      "musicas": ["m1", "m6"]
-    },
-    {
       "id": "p2",
       "nome": "Event Themes",
-      "musicas": ["m3", "m4", "m5"]
-    },
-    {
-      "id": "p3",
-      "nome": "Original Versions",
-      "musicas": ["m2"]
-    },
-    {
-      "id": "p4",
-      "nome": "Most Popular",
-      "musicas": ["m1", "m3", "m6"]
+      "musicas": []
     }
   ],
-  "upcomingRelease": {
-    "songId": "m4",
-    "releaseDate": "2023-12-15T18:00:00"
-  }
+"upcomingRelease": [
+    {
+    "songId": "m1753395474592",
+    "releaseDate": "2025-07-25T12:00"
+    },
+    {
+    "songId": "m1753395706159",
+    "releaseDate": "2025-07-26T12:00"
+    }
+]
 }
