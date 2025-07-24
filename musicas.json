@@ -1,0 +1,84 @@
+{
+  "musicas": [
+    {
+      "id": "m1",
+      "titulo": "Brawl Stars Theme (Slowed + Reverb)",
+      "artista": "Supercell",
+      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
+      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "duracao": 183,
+      "upcoming": false
+    },
+    {
+      "id": "m2",
+      "titulo": "Trophy Road (Slowed Down)",
+      "artista": "Supercell",
+      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
+      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "duracao": 215,
+      "upcoming": false
+    },
+    {
+      "id": "m3",
+      "titulo": "Brawloween (Nightcore Version)",
+      "artista": "Supercell",
+      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
+      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+      "duracao": 198,
+      "upcoming": false
+    },
+    {
+      "id": "m4",
+      "titulo": "Lunar New Year (Slowed + Bass Boosted)",
+      "artista": "Supercell",
+      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
+      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+      "duracao": 227,
+      "upcoming": true
+    },
+    {
+      "id": "m5",
+      "titulo": "Summer of Monsters (Slowed Version)",
+      "artista": "Supercell",
+      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
+      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+      "duracao": 205,
+      "upcoming": false
+    },
+    {
+      "id": "m6",
+      "titulo": "Championship Theme (Slowed + Reverb)",
+      "artista": "Supercell",
+      "capa": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400",
+      "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+      "duracao": 192,
+      "upcoming": false
+    }
+  ],
+  "playlists": [
+    {
+      "id": "p1",
+      "nome": "Slowed + Reverb",
+      "musicas": ["m1", "m6"]
+    },
+    {
+      "id": "p2",
+      "nome": "Event Themes",
+      "musicas": ["m3", "m4", "m5"]
+    },
+    {
+      "id": "p3",
+      "nome": "Original Versions",
+      "musicas": ["m2"]
+    },
+    {
+      "id": "p4",
+      "nome": "Most Popular",
+      "musicas": ["m1", "m3", "m6"]
+    }
+  ],
+  "upcomingRelease": {
+    "songId": "m4",
+    "releaseDate": "2023-12-15T18:00:00"
+  }
+}
