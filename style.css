@@ -1,61 +1,797 @@
-body {
+/* Reset e estilos base */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #141E30, #243B55);
-    color: white;
+    padding: 0;
+    box-sizing: border-box;
 }
-.loader {
+
+:root {
+    --primary-color: #FF4655;
+    --secondary-color: #0F1923;
+    --accent-color: #FFD700;
+    --text-color: #FFFFFF;
+    --dark-bg: #0A0E12;
+    --spray-effect: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q30,10 40,20 T60,20 T80,20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>');
+}
+
+@font-face {
+    font-family: 'Nougat';
+    src: local('Nougat'), url(https://fonts.googleapis.com/css2?family=Nougat&display=swap) format('woff2');
+}
+
+@font-face {
+    font-family: 'Lilita One';
+    src: local('Lilita One'), url(https://fonts.googleapis.com/css2?family=Lilita+One&display=swap) format('woff2');
+}
+
+body {
+    font-family: 'Nougat', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-image: url('https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9tc0FZbjFLZG9Zbmg3THg5cE1ody5wbmcifQ:supercell:AjL67My6-d2z9WLXX-MO-U_mMxiKf6iefpj5wQHkMJ8?width=2400');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 25, 35, 0.85);
+    z-index: -2;
+}
+
+.graffiti-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--spray-effect);
+    background-size: 200px 200px;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Estilos do cabeçalho */
+.vandal-header {
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.ripped-paper-top {
+    height: 30px;
+    background: linear-gradient(to bottom, transparent 0%, var(--secondary-color) 100%);
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,5 Q50,10 0,5 L0,0 Z" fill="black"/></svg>');
+    mask-size: 100% 100%;
+    width: 100%;
+}
+
+.title-spray {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0.5rem 0;
+    text-shadow: 3px 3px 0 var(--secondary-color),
+                 5px 5px 0 rgba(255, 70, 85, 0.3),
+                 8px 8px 0 rgba(255, 70, 85, 0.1);
+    position: relative;
+    display: inline-block;
+}
+
+.slowed-spray {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    display: block;
+    margin-top: -0.5rem;
+    text-shadow: 2px 2px 0 var(--secondary-color),
+                 4px 4px 0 rgba(255, 215, 0, 0.3),
+                 6px 6px 0 rgba(255, 215, 0, 0.1);
+}
+
+.spray-drips {
+    height: 30px;
+    background: linear-gradient(to bottom, var(--primary-color) 0%, transparent 100%);
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="M10,0 Q15,10 20,0 Q25,15 30,0 Q35,20 40,0 Q45,25 50,0 Q55,20 60,0 Q65,15 70,0 Q75,10 80,0 Q85,5 90,0" fill="black"/></svg>');
+    mask-size: 100% 100%;
+    width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+}
+
+/* Estilos do player */
+.player-section {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.vandal-box {
+    background-color: rgba(15, 25, 35, 0.7);
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5),
+                inset 0 0 10px rgba(255, 70, 85, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.vandal-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 70, 85, 0.1) 0%, transparent 50%, rgba(255, 215, 0, 0.1) 100%);
+    pointer-events: none;
+}
+
+.player-container {
+    backdrop-filter: blur(5px);
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#current-song-cover {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+#current-song-title {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.2rem;
+}
+
+#current-song-artist {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, var(--primary-color) 0%, var(--primary-color) 0%, var(--secondary-color) 0%);
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    gap: 1.5rem;
 }
-.loader img {
-    width: 100px;
-    animation: spin 2s linear infinite;
-}
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-.container {
-    padding: 20px;
-}
-#search {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+
+.spray-btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border: none;
-}
-#playlist-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-.playlist {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
 }
-.playlist:hover {
-    transform: scale(1.05);
+
+.spray-btn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
-#player {
-    margin-top: 20px;
+
+.spray-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.spray-btn:hover::before {
+    opacity: 0.3;
+}
+
+.play-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+.volume-control {
+    width: 80px;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 70%, var(--secondary-color) 70%);
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
+.volume-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--text-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--secondary-color);
+}
+
+/* Estilos do countdown */
+.countdown-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+}
+
+.spray-title {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 2rem;
+    color: var(--accent-color);
     text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 var(--secondary-color),
+                 3px 3px 0 rgba(255, 215, 0, 0.3);
+    position: relative;
 }
-#cover {
-    width: 200px;
-    height: 200px;
+
+.spray-title::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+    margin: 0.5rem auto;
+}
+
+.countdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 70, 85, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    min-width: 70px;
+}
+
+.countdown-item span:first-child {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.countdown-separator {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-top: -1rem;
+}
+
+.upcoming-song {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(15, 25, 35, 0.5);
+    padding: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    border-left: 3px solid var(--primary-color);
+}
+
+#upcoming-cover {
+    width: 60px;
+    height: 60px;
     object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid var(--accent-color);
+}
+
+#upcoming-title {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 0.2rem;
+}
+
+#upcoming-date {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+/* Estilos dos filtros */
+.filters-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    max-width: 400px;
+}
+
+.spray-input {
+    flex-grow: 1;
+    background-color: rgba(15, 25, 35, 0.7);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px 0 0 5px;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    font-family: 'Nougat', sans-serif;
+    outline: none;
+}
+
+.spray-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.spray-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.filter-container {
+    min-width: 200px;
+}
+
+.spray-select {
+    width: 100%;
+    background-color: rgba(15, 25, 35, 0.7);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    font-family: 'Nougat', sans-serif;
+    outline: none;
+    cursor: pointer;
+}
+
+.spray-select:focus {
+    border-color: var(--accent-color);
+}
+
+/* Estilos das playlists */
+.playlists-section {
+    margin: 3rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.playlists-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.playlist-card {
+    background-color: rgba(15, 25, 35, 0.7);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
+}
+
+.playlist-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 70, 85, 0.1) 0%, transparent 50%, rgba(255, 215, 0, 0.1) 100%);
+    pointer-events: none;
+}
+
+.playlist-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+}
+
+.playlist-folder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.playlist-name {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.playlist-count {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+/* Estilos das músicas */
+.songs-section {
+    margin: 3rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.songs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.song-card {
+    background-color: rgba(15, 25, 35, 0.7);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.song-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
+}
+
+.song-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 70, 85, 0.1) 0%, transparent 50%, rgba(255, 215, 0, 0.1) 100%);
+    pointer-events: none;
+}
+
+.song-cover {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.song-info-container {
+    flex-grow: 1;
+}
+
+.song-title {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 0.2rem;
+}
+
+.song-artist {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+.song-duration {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.song-playlist {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 10px;
 }
-@media (max-width: 600px) {
-    #cover {
-        width: 100%;
-        height: auto;
+
+.upcoming-badge {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* Estilos do rodapé */
+.vandal-footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.ripped-paper-bottom {
+    height: 30px;
+    background: linear-gradient(to top, transparent 0%, var(--secondary-color) 100%);
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,5 Q50,0 100,5 L100,10 L0,10 Z" fill="black"/></svg>');
+    mask-size: 100% 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.vandal-footer p {
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.spray-tags {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.spray-tags span {
+    background-color: rgba(255, 70, 85, 0.3);
+    color: var(--accent-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Efeitos de spray adicionais */
+.spray-effect {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: var(--spray-effect);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .title-spray {
+        font-size: 2.5rem;
     }
+    
+    .slowed-spray {
+        font-size: 2rem;
+    }
+    
+    .playlists-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .songs-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .controls {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-spray {
+        font-size: 2rem;
+    }
+    
+    .slowed-spray {
+        font-size: 1.5rem;
+    }
+    
+    .spray-title {
+        font-size: 1.5rem;
+    }
+    
+    .playlists-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .countdown-timer {
+        flex-wrap: wrap;
+    }
+    
+    .countdown-separator {
+        display: none;
+    }
+    
+    .filters-section {
+        flex-direction: column;
+    }
+    
+    .search-container {
+        max-width: 100%;
+    }
+}
+
+/* Animações */
+@keyframes spray {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.spray-animation {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: spray 1s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+/* Efeito de rasgado */
+.torn-edge {
+    position: relative;
+}
+
+.torn-edge::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to bottom, var(--secondary-color) 0%, transparent 100%);
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,0 Q10,10 20,0 Q30,10 40,0 Q50,10 60,0 Q70,10 80,0 Q90,10 100,0 L100,10 L0,10 Z" fill="black"/></svg>');
+    mask-size: 100% 100%;
 }
