@@ -4,7 +4,10 @@ let playlists = [];
 let upcomingReleases = [];
 let currentSongIndex = 0;
 let isPlaying = false;
+let isShuffleOn = false;
+let isRepeatOn = false;
 let audioPlayer = new Audio();
+let shuffleHistory = [];
 
 // Elementos DOM
 const domElements = {
@@ -12,6 +15,8 @@ const domElements = {
     playBtn: document.getElementById('play-btn'),
     prevBtn: document.getElementById('prev-btn'),
     nextBtn: document.getElementById('next-btn'),
+    shuffleBtn: document.getElementById('shuffle-btn'),
+    repeatBtn: document.getElementById('repeat-btn'),
     volumeBtn: document.getElementById('volume-btn'),
     volumeControl: document.getElementById('volume-control'),
     progressBar: document.getElementById('progress-bar'),
@@ -38,6 +43,9 @@ async function loadData() {
         playlists = data.playlists || [];
         upcomingReleases = data.upcomingReleases || [];
         
+        // Verificar e desbloquear lançamentos passados
+        checkAndUnlockReleases();
+        
         renderPlaylists();
         renderSongs();
         renderUpcomingReleases();
@@ -51,6 +59,15 @@ async function loadData() {
     } catch (error) {
         console.error('Erro ao carregar dados:', error);
     }
+}
+
+// Verificar e desbloquear lançamentos passados
+function checkAndUnlockReleases() {
+    const now = new Date();
+    upcomingReleases = upcomingReleases.filter(release => {
+        const releaseDate = new Date(release.releaseDate);
+        return releaseDate > now;
+    });
 }
 
 // Verificar se uma música é upcoming
@@ -121,6 +138,11 @@ function renderSongs(filteredSongs = null) {
                 currentSongIndex = musicas.findIndex(s => s.id === song.id);
                 loadSong(currentSongIndex);
                 playSong();
+                
+                // Resetar histórico de shuffle se não estiver ativo
+                if (!isShuffleOn) {
+                    shuffleHistory = [];
+                }
             });
         }
         
@@ -155,35 +177,40 @@ function renderUpcomingReleases() {
         upcomingItem.className = 'upcoming-item';
         
         upcomingItem.innerHTML = `
-            <img src="${song.capa}" alt="${song.titulo}" class="upcoming-cover">
-            <div class="upcoming-info">
-                <h3>${song.titulo}</h3>
-                <p>${song.artista}</p>
-                <p>Lançamento: ${releaseDate.toLocaleDateString()} às ${releaseDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
-                ${timeDiff > 0 ? `
-                <div class="countdown-timer">
-                    <div class="countdown-item">
-                        <span class="days">00</span>
-                        <span class="countdown-label">DIAS</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span class="hours">00</span>
-                        <span class="countdown-label">HORAS</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span class="minutes">00</span>
-                        <span class="countdown-label">MIN</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span class="seconds">00</span>
-                        <span class="countdown-label">SEG</span>
-                    </div>
+            <div class="upcoming-header">
+                <img src="${song.capa}" alt="${song.titulo}" class="upcoming-cover">
+                <div class="upcoming-info">
+                    <h3>${song.titulo}</h3>
+                    <p>${song.artista}</p>
                 </div>
-                ` : '<p class="upcoming-available">DISPONÍVEL AGORA</p>'}
             </div>
+            <p>Lançamento: ${releaseDate.toLocaleDateString()} às ${releaseDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
+            ${timeDiff > 0 ? `
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <span class="days">00</span>
+                    <span class="countdown-label">DIAS</span>
+                </div>
+                <span class="countdown-separator">:</span>
+                <div class="countdown-item">
+                    <span class="hours">00</span>
+                    <span class="countdown-label">HORAS</span>
+                </div>
+                <span class="countdown-separator">:</span>
+                <div class="countdown-item">
+                    <span class="minutes">00</span>
+                    <span class="countdown-label">MIN</span>
+                </div>
+                <span class="countdown-separator">:</span>
+                <div class="countdown-item">
+                    <span class="seconds">00</span>
+                    <span class="countdown-label">SEG</span>
+                </div>
+            </div>
+            ` : `
+            <div class="upcoming-available">DISPONÍVEL AGORA</div>
+            <button class="unlock-btn" data-id="${song.id}">DESBLOQUEAR MÚSICA</button>
+            `}
         `;
         
         domElements.upcomingContainer.appendChild(upcomingItem);
@@ -191,8 +218,29 @@ function renderUpcomingReleases() {
         // Iniciar contagem regressiva se ainda não lançou
         if (timeDiff > 0) {
             startCountdown(upcomingItem, releaseDate);
+        } else {
+            // Adicionar evento ao botão de desbloquear
+            upcomingItem.querySelector('.unlock-btn').addEventListener('click', () => {
+                unlockSong(song.id);
+            });
         }
     });
+}
+
+// Desbloquear música
+function unlockSong(songId) {
+    upcomingReleases = upcomingReleases.filter(release => release.songId !== songId);
+    renderUpcomingReleases();
+    renderSongs();
+    
+    // Se não houver música tocando, tocar a recém-desbloqueada
+    if (!isPlaying) {
+        const unlockedIndex = musicas.findIndex(s => s.id === songId);
+        if (unlockedIndex !== -1) {
+            currentSongIndex = unlockedIndex;
+            loadSong(currentSongIndex);
+        }
+    }
 }
 
 // Iniciar contagem regressiva
@@ -203,7 +251,16 @@ function startCountdown(element, releaseDate) {
         
         if (distance < 0) {
             clearInterval(countdown);
-            element.querySelector('.countdown-timer').outerHTML = '<p class="upcoming-available">DISPONÍVEL AGORA</p>';
+            element.querySelector('.countdown-timer').outerHTML = `
+                <div class="upcoming-available">DISPONÍVEL AGORA</div>
+                <button class="unlock-btn" data-id="${element.querySelector('.unlock-btn')?.dataset.id || ''}">DESBLOQUEAR MÚSICA</button>
+            `;
+            
+            // Adicionar evento ao novo botão
+            element.querySelector('.unlock-btn')?.addEventListener('click', () => {
+                unlockSong(element.querySelector('.unlock-btn').dataset.id);
+            });
+            
             return;
         }
         
@@ -250,6 +307,11 @@ function loadSong(index) {
     
     // Adicionar efeito de spray
     addSprayEffect();
+    
+    // Adicionar ao histórico de shuffle se estiver ativo
+    if (isShuffleOn && !shuffleHistory.includes(index)) {
+        shuffleHistory.push(index);
+    }
 }
 
 // Tocar música
@@ -268,8 +330,57 @@ function pauseSong() {
     domElements.playBtn.classList.remove('pulse');
 }
 
-// Próxima música
-function nextSong() {
+// Alternar shuffle
+function toggleShuffle() {
+    isShuffleOn = !isShuffleOn;
+    domElements.shuffleBtn.classList.toggle('active', isShuffleOn);
+    
+    if (isShuffleOn) {
+        // Iniciar histórico de shuffle com a música atual
+        shuffleHistory = [currentSongIndex];
+    } else {
+        shuffleHistory = [];
+    }
+}
+
+// Alternar repeat
+function toggleRepeat() {
+    isRepeatOn = !isRepeatOn;
+    domElements.repeatBtn.classList.toggle('active', isRepeatOn);
+}
+
+// Obter próxima música com base no modo atual
+function getNextSongIndex() {
+    if (isRepeatOn) {
+        return currentSongIndex;
+    }
+    
+    if (isShuffleOn) {
+        // Obter músicas disponíveis (não upcoming)
+        const availableSongs = musicas.filter((_, index) => !isUpcoming(musicas[index].id));
+        
+        // Se já ouviu todas, reiniciar o histórico
+        if (shuffleHistory.length === availableSongs.length) {
+            shuffleHistory = [];
+        }
+        
+        // Filtrar músicas não tocadas ainda
+        const untrackedSongs = availableSongs.filter((_, index) => 
+            !shuffleHistory.includes(musicas.indexOf(availableSongs[index]))
+        );
+        
+        // Se houver músicas não tocadas, escolher uma aleatória
+        if (untrackedSongs.length > 0) {
+            const randomIndex = Math.floor(Math.random() * untrackedSongs.length);
+            return musicas.indexOf(untrackedSongs[randomIndex]);
+        }
+        
+        // Se todas foram tocadas, escolher qualquer uma aleatoriamente
+        const randomIndex = Math.floor(Math.random() * availableSongs.length);
+        return musicas.indexOf(availableSongs[randomIndex]);
+    }
+    
+    // Modo normal - próxima música na ordem
     let nextIndex = (currentSongIndex + 1) % musicas.length;
     
     // Pular músicas que ainda não foram lançadas
@@ -277,16 +388,25 @@ function nextSong() {
         nextIndex = (nextIndex + 1) % musicas.length;
         
         // Se todas as músicas forem upcoming, não faça nada
-        if (nextIndex === currentSongIndex) return;
+        if (nextIndex === currentSongIndex) return currentSongIndex;
     }
     
-    currentSongIndex = nextIndex;
-    loadSong(currentSongIndex);
-    if (isPlaying) playSong();
+    return nextIndex;
 }
 
-// Música anterior
-function prevSong() {
+// Obter música anterior com base no modo atual
+function getPrevSongIndex() {
+    if (isRepeatOn) {
+        return currentSongIndex;
+    }
+    
+    if (isShuffleOn && shuffleHistory.length > 1) {
+        // Voltar no histórico de shuffle
+        shuffleHistory.pop(); // Remove a atual
+        return shuffleHistory[shuffleHistory.length - 1];
+    }
+    
+    // Modo normal - música anterior na ordem
     let prevIndex = (currentSongIndex - 1 + musicas.length) % musicas.length;
     
     // Pular músicas que ainda não foram lançadas
@@ -294,10 +414,22 @@ function prevSong() {
         prevIndex = (prevIndex - 1 + musicas.length) % musicas.length;
         
         // Se todas as músicas forem upcoming, não faça nada
-        if (prevIndex === currentSongIndex) return;
+        if (prevIndex === currentSongIndex) return currentSongIndex;
     }
     
-    currentSongIndex = prevIndex;
+    return prevIndex;
+}
+
+// Próxima música
+function nextSong() {
+    currentSongIndex = getNextSongIndex();
+    loadSong(currentSongIndex);
+    if (isPlaying) playSong();
+}
+
+// Música anterior
+function prevSong() {
+    currentSongIndex = getPrevSongIndex();
     loadSong(currentSongIndex);
     if (isPlaying) playSong();
 }
@@ -360,6 +492,10 @@ function setupEventListeners() {
     
     domElements.nextBtn.addEventListener('click', nextSong);
     domElements.prevBtn.addEventListener('click', prevSong);
+    
+    // Shuffle e Repeat
+    domElements.shuffleBtn.addEventListener('click', toggleShuffle);
+    domElements.repeatBtn.addEventListener('click', toggleRepeat);
     
     // Barra de progresso
     domElements.audioPlayer.addEventListener('timeupdate', updateProgressBar);
