@@ -20,7 +20,7 @@
     <main class="main-content">
         <section class="countdown-section vandal-box">
             <h2 class="spray-title">PRÓXIMOS LANÇAMENTOS</h2>
-            <div id="upcoming-container" class="upcoming-container">
+            <div id="upcoming-container" class="upcoming-grid">
                 <!-- Lançamentos serão carregados aqui via JS -->
             </div>
         </section>
@@ -41,9 +41,11 @@
                         <span id="duration">0:00</span>
                     </div>
                     <div class="controls">
+                        <button id="shuffle-btn" class="spray-btn" title="Aleatório">🔀</button>
                         <button id="prev-btn" class="spray-btn">⏮</button>
                         <button id="play-btn" class="spray-btn play-btn">▶</button>
                         <button id="next-btn" class="spray-btn">⏭</button>
+                        <button id="repeat-btn" class="spray-btn" title="Repetir">🔁</button>
                         <button id="volume-btn" class="spray-btn">🔊</button>
                         <input type="range" id="volume-control" class="volume-control" min="0" max="1" step="0.1" value="0.7">
                     </div>
