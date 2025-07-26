@@ -1,10 +1,10 @@
 // Dados das músicas e playlists
 let musicas = [];
 let playlists = [];
+let upcomingReleases = [];
 let currentSongIndex = 0;
 let isPlaying = false;
 let audioPlayer = new Audio();
-let upcomingRelease = null;
 
 // Elementos DOM
 const domElements = {
@@ -22,16 +22,10 @@ const domElements = {
     currentSongCover: document.getElementById('current-song-cover'),
     songsContainer: document.getElementById('songs-container'),
     playlistsContainer: document.getElementById('playlists-container'),
+    upcomingContainer: document.getElementById('upcoming-container'),
     searchInput: document.getElementById('search-input'),
     searchBtn: document.getElementById('search-btn'),
-    playlistFilter: document.getElementById('playlist-filter'),
-    upcomingTitle: document.getElementById('upcoming-title'),
-    upcomingCover: document.getElementById('upcoming-cover'),
-    upcomingDate: document.getElementById('upcoming-date'),
-    days: document.getElementById('days'),
-    hours: document.getElementById('hours'),
-    minutes: document.getElementById('minutes'),
-    seconds: document.getElementById('seconds')
+    playlistFilter: document.getElementById('playlist-filter')
 };
 
 // Carregar dados do JSON
@@ -40,16 +34,16 @@ async function loadData() {
         const response = await fetch('musicas.json');
         const data = await response.json();
         
-        musicas = data.musicas;
-        playlists = data.playlists;
-        upcomingRelease = data.upcomingRelease;
+        musicas = data.musicas || [];
+        playlists = data.playlists || [];
+        upcomingReleases = data.upcomingReleases || [];
         
         renderPlaylists();
         renderSongs();
-        setupUpcomingRelease();
+        renderUpcomingReleases();
         
         // Configurar o player com a primeira música disponível
-        const firstAvailableSong = musicas.find(song => !song.upcoming);
+        const firstAvailableSong = musicas.find(song => !isUpcoming(song.id));
         if (firstAvailableSong) {
             currentSongIndex = musicas.indexOf(firstAvailableSong);
             loadSong(currentSongIndex);
@@ -57,6 +51,11 @@ async function loadData() {
     } catch (error) {
         console.error('Erro ao carregar dados:', error);
     }
+}
+
+// Verificar se uma música é upcoming
+function isUpcoming(songId) {
+    return upcomingReleases.some(release => release.songId === songId);
 }
 
 // Renderizar playlists
@@ -97,9 +96,12 @@ function renderSongs(filteredSongs = null) {
     
     const songsToRender = filteredSongs || musicas;
     
-    songsToRender.forEach((song, index) => {
+    // Ordenar músicas (as mais recentes primeiro)
+    const sortedSongs = [...songsToRender].sort((a, b) => b.id.localeCompare(a.id));
+    
+    sortedSongs.forEach((song, index) => {
         const songCard = document.createElement('div');
-        songCard.className = `song-card ${song.upcoming ? 'upcoming' : ''}`;
+        songCard.className = `song-card ${isUpcoming(song.id) ? 'upcoming' : ''}`;
         
         const playlistInfo = playlists.find(p => p.musicas.includes(song.id));
         
@@ -111,10 +113,10 @@ function renderSongs(filteredSongs = null) {
                 <p class="song-duration">${formatTime(song.duracao)}</p>
             </div>
             ${playlistInfo ? `<span class="song-playlist">${playlistInfo.nome}</span>` : ''}
-            ${song.upcoming ? '<span class="upcoming-badge">EM BREVE</span>' : ''}
+            ${isUpcoming(song.id) ? '<span class="upcoming-badge">EM BREVE</span>' : ''}
         `;
         
-        if (!song.upcoming) {
+        if (!isUpcoming(song.id)) {
             songCard.addEventListener('click', () => {
                 currentSongIndex = musicas.findIndex(s => s.id === song.id);
                 loadSong(currentSongIndex);
@@ -126,33 +128,82 @@ function renderSongs(filteredSongs = null) {
     });
 }
 
-// Configurar o próximo lançamento
-function setupUpcomingRelease() {
-    if (!upcomingRelease) return;
+// Renderizar próximos lançamentos
+function renderUpcomingReleases() {
+    domElements.upcomingContainer.innerHTML = '';
     
-    const upcomingSong = musicas.find(song => song.id === upcomingRelease.songId);
-    if (!upcomingSong) return;
+    if (upcomingReleases.length === 0) {
+        domElements.upcomingContainer.innerHTML = '<p>Nenhum lançamento programado</p>';
+        return;
+    }
     
-    domElements.upcomingTitle.textContent = upcomingSong.titulo;
-    domElements.upcomingCover.src = upcomingSong.capa;
-    domElements.upcomingDate.textContent = `Lançamento: ${new Date(upcomingRelease.releaseDate).toLocaleDateString()} às ${new Date(upcomingRelease.releaseDate).toLocaleTimeString()}`;
+    // Ordenar por data mais próxima
+    const sortedReleases = [...upcomingReleases].sort((a, b) => 
+        new Date(a.releaseDate) - new Date(b.releaseDate)
+    );
     
-    // Iniciar contagem regressiva
-    startCountdown();
+    sortedReleases.forEach(release => {
+        const song = musicas.find(s => s.id === release.songId);
+        if (!song) return;
+        
+        const releaseDate = new Date(release.releaseDate);
+        const now = new Date();
+        const timeDiff = releaseDate - now;
+        
+        // Criar elemento de lançamento
+        const upcomingItem = document.createElement('div');
+        upcomingItem.className = 'upcoming-item';
+        
+        upcomingItem.innerHTML = `
+            <img src="${song.capa}" alt="${song.titulo}" class="upcoming-cover">
+            <div class="upcoming-info">
+                <h3>${song.titulo}</h3>
+                <p>${song.artista}</p>
+                <p>Lançamento: ${releaseDate.toLocaleDateString()} às ${releaseDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
+                ${timeDiff > 0 ? `
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="days">00</span>
+                        <span class="countdown-label">DIAS</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="hours">00</span>
+                        <span class="countdown-label">HORAS</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="minutes">00</span>
+                        <span class="countdown-label">MIN</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="seconds">00</span>
+                        <span class="countdown-label">SEG</span>
+                    </div>
+                </div>
+                ` : '<p class="upcoming-available">DISPONÍVEL AGORA</p>'}
+            </div>
+        `;
+        
+        domElements.upcomingContainer.appendChild(upcomingItem);
+        
+        // Iniciar contagem regressiva se ainda não lançou
+        if (timeDiff > 0) {
+            startCountdown(upcomingItem, releaseDate);
+        }
+    });
 }
 
 // Iniciar contagem regressiva
-function startCountdown() {
-    if (!upcomingRelease) return;
-    
+function startCountdown(element, releaseDate) {
     const countdown = setInterval(() => {
         const now = new Date().getTime();
-        const releaseDate = new Date(upcomingRelease.releaseDate).getTime();
         const distance = releaseDate - now;
         
         if (distance < 0) {
             clearInterval(countdown);
-            domElements.countdownSection.innerHTML = '<h2>Lançamento disponível agora!</h2>';
+            element.querySelector('.countdown-timer').outerHTML = '<p class="upcoming-available">DISPONÍVEL AGORA</p>';
             return;
         }
         
@@ -161,10 +212,10 @@ function startCountdown() {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-        domElements.days.textContent = days.toString().padStart(2, '0');
-        domElements.hours.textContent = hours.toString().padStart(2, '0');
-        domElements.minutes.textContent = minutes.toString().padStart(2, '0');
-        domElements.seconds.textContent = seconds.toString().padStart(2, '0');
+        element.querySelector('.days').textContent = days.toString().padStart(2, '0');
+        element.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+        element.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+        element.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
     }, 1000);
 }
 
@@ -219,26 +270,34 @@ function pauseSong() {
 
 // Próxima música
 function nextSong() {
-    currentSongIndex = (currentSongIndex + 1) % musicas.length;
+    let nextIndex = (currentSongIndex + 1) % musicas.length;
     
     // Pular músicas que ainda não foram lançadas
-    while (musicas[currentSongIndex].upcoming) {
-        currentSongIndex = (currentSongIndex + 1) % musicas.length;
+    while (isUpcoming(musicas[nextIndex].id)) {
+        nextIndex = (nextIndex + 1) % musicas.length;
+        
+        // Se todas as músicas forem upcoming, não faça nada
+        if (nextIndex === currentSongIndex) return;
     }
     
+    currentSongIndex = nextIndex;
     loadSong(currentSongIndex);
     if (isPlaying) playSong();
 }
 
 // Música anterior
 function prevSong() {
-    currentSongIndex = (currentSongIndex - 1 + musicas.length) % musicas.length;
+    let prevIndex = (currentSongIndex - 1 + musicas.length) % musicas.length;
     
     // Pular músicas que ainda não foram lançadas
-    while (musicas[currentSongIndex].upcoming) {
-        currentSongIndex = (currentSongIndex - 1 + musicas.length) % musicas.length;
+    while (isUpcoming(musicas[prevIndex].id)) {
+        prevIndex = (prevIndex - 1 + musicas.length) % musicas.length;
+        
+        // Se todas as músicas forem upcoming, não faça nada
+        if (prevIndex === currentSongIndex) return;
     }
     
+    currentSongIndex = prevIndex;
     loadSong(currentSongIndex);
     if (isPlaying) playSong();
 }
