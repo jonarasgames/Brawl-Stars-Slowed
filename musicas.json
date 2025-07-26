@@ -251,6 +251,62 @@
       "audio": "https://files.catbox.moe/6hfe0p.mp3",
       "duracao": 234,
       "upcoming": true
+    },
+    {
+      "id": "m1753496694753",
+      "titulo": "The Swamp Of Love (Ingame)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/xejav5.jpg",
+      "audio": "https://files.catbox.moe/y1gf95.wav",
+      "duracao": 240
+    },
+    {
+      "id": "m1753496941910",
+      "titulo": "The Underwater Circus (Ingame)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/w8e7ol.jpg",
+      "audio": "https://files.catbox.moe/ljg2dg.wav",
+      "duracao": 168
+    },
+    {
+      "id": "m1753497030806",
+      "titulo": "Scary Tales (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/rv6vmf.jpg",
+      "audio": "https://files.catbox.moe/ydmj58.wav",
+      "duracao": 180
+    },
+    {
+      "id": "m1753497176953",
+      "titulo": "The Bizarre Circus (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/cgrd89.png",
+      "audio": "https://files.catbox.moe/3dtfrw.wav",
+      "duracao": 200
+    },
+    {
+      "id": "m1753497280032",
+      "titulo": "The Codex of Doom (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/7lzfpf.jpg",
+      "audio": "https://files.catbox.moe/euk6ng.wav",
+      "duracao": 348
+    },
+    {
+      "id": "m1753497361412",
+      "titulo": "The Brawlacademy (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/8xu2fw.png",
+      "audio": "https://files.catbox.moe/ya3j1q.wav",
+      "duracao": 222
+    },
+    {
+      "id": "m1753497441979",
+      "titulo": "Pinstunt Brawl (Ingame)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/g51qjl.png",
+      "audio": "https://files.catbox.moe/8yf0ak.wav",
+      "duracao": 243
     }
   ],
   "playlists": [
@@ -260,14 +316,38 @@
       "musicas": []
     }
   ],
-"upcomingReleases": [
+  "upcomingReleases": [
     {
-    "songId": "m1753395474592",
-    "releaseDate": "2025-07-25T12:00"
+      "songId": "m1753395706159",
+      "releaseDate": "2025-07-26T12:00"
     },
     {
-    "songId": "m1753395706159",
-    "releaseDate": "2025-07-26T12:00"
+      "songId": "m1753496694753",
+      "releaseDate": "2025-07-27T12:00"
+    },
+    {
+      "songId": "m1753496941910",
+      "releaseDate": "2025-07-28T12:00"
+    },
+    {
+      "songId": "m1753497030806",
+      "releaseDate": "2025-07-29T12:00"
+    },
+    {
+      "songId": "m1753497176953",
+      "releaseDate": "2025-07-30T12:00"
+    },
+    {
+      "songId": "m1753497280032",
+      "releaseDate": "2025-07-31T12:00"
+    },
+    {
+      "songId": "m1753497361412",
+      "releaseDate": "2025-08-01T12:00"
+    },
+    {
+      "songId": "m1753497441979",
+      "releaseDate": "2025-08-02T12:00"
     }
-]
+  ]
 }
