@@ -40,17 +40,17 @@ async function loadData() {
         const data = await response.json();
         
         musicas = data.musicas || [];
-        playlists = data.playlists || [];
+        playlists = (data.playlists || []).map(playlist => ({
+            ...playlist,
+            imagem: playlist.imagem || "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400"
+        }));
         upcomingReleases = data.upcomingReleases || [];
         
-        // Verificar e desbloquear lançamentos passados
         checkAndUnlockReleases();
-        
         renderPlaylists();
         renderSongs();
         renderUpcomingReleases();
         
-        // Configurar o player com a primeira música disponível
         const firstAvailableSong = musicas.find(song => !isUpcoming(song.id));
         if (firstAvailableSong) {
             currentSongIndex = musicas.indexOf(firstAvailableSong);
@@ -91,7 +91,7 @@ function renderPlaylists() {
         const playlistCard = document.createElement('div');
         playlistCard.className = 'playlist-card';
         playlistCard.innerHTML = `
-            <img src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400" 
+            <img src="${playlist.imagem}" 
                  alt="${playlist.nome}" class="playlist-icon">
             <img src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9tc0FZbjFLZG9Zbmg3THg5cE1ody5wbmcifQ:supercell:AjL67My6-d2z9WLXX-MO-U_mMxiKf6iefpj5wQHkMJ8?width=2400" 
                  alt="" class="playlist-folder">
