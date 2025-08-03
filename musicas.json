@@ -3,110 +3,98 @@
     {
       "id": "m1",
       "titulo": "You’ve got a Teammate in Me (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/b4pus9.png",
       "audio": "https://files.catbox.moe/czpkik.mp3",
-      "duracao": 180,
-      "upcoming": false
+      "duracao": 180
     },
     {
       "id": "m1753390177449",
       "titulo": "Subway Brawl (In Game)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/qr130x.png",
       "audio": "https://files.catbox.moe/wbzfk4.mp3",
-      "duracao": 226,
-      "upcoming": false
+      "duracao": 226
     },
     {
       "id": "m1753390496847",
       "titulo": "The Starr Lounge (In Game)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/xqrghb.png",
       "audio": "https://files.catbox.moe/xuo82r.mp3",
-      "duracao": 201,
-      "upcoming": false
+      "duracao": 201
     },
     {
       "id": "m1753390820106",
       "titulo": "Make Heroes (Menu 1)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/r6znfn.png",
       "audio": "https://files.catbox.moe/7xzyaz.mp3",
-      "duracao": 225,
-      "upcoming": false
+      "duracao": 225
     },
     {
       "id": "m1753391604441",
       "titulo": "Mortis' Horror-Torium (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/tnca6b.png",
       "audio": "https://files.catbox.moe/gygwhs.mp3",
-      "duracao": 200,
-      "upcoming": false
+      "duracao": 200
     },
     {
       "id": "m1753391929189",
       "titulo": "Giftshop Battle (Ingame)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/8e6hj8.png",
       "audio": "https://files.catbox.moe/cbuu3f.mp3",
-      "duracao": 182,
-      "upcoming": false
+      "duracao": 182
     },
     {
       "id": "m1753392172372",
       "titulo": "Welcome to Starr Park (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/qa4jkp.png",
       "audio": "https://files.catbox.moe/rni2si.mp3",
-      "duracao": 147,
-      "upcoming": false
+      "duracao": 147
     },
     {
       "id": "m1753392306979",
       "titulo": "Summer of Robots (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/0rtdd8.png",
       "audio": "https://files.catbox.moe/wkei3s.mp3",
-      "duracao": 193,
-      "upcoming": false
+      "duracao": 193
     },
     {
       "id": "m1753392403802",
       "titulo": "Forbidden Love 02 (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/xpf6s2.png",
       "audio": "https://files.catbox.moe/o5lhkd.mp3",
-      "duracao": 184,
-      "upcoming": false
+      "duracao": 184
     },
     {
       "id": "m1753392564299",
       "titulo": "Kpop Starr (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/wgm7oa.png",
       "audio": "https://files.catbox.moe/6zgpad.mp3",
-      "duracao": 295,
-      "upcoming": false
+      "duracao": 295
     },
     {
       "id": "m1753392865231",
       "titulo": "The Robot Factory (Ingame)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/acf8qd.png",
       "audio": "https://files.catbox.moe/omkhf4.mp3",
-      "duracao": 145,
-      "upcoming": false
+      "duracao": 145
     },
     {
       "id": "m1753393094617",
       "titulo": "Brawl Skirt Chase (Ingame)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/42nmr7.png",
       "audio": "https://files.catbox.moe/ebu8qh.mp3",
-      "duracao": 173,
-      "upcoming": false
+      "duracao": 173
     },
     {
       "id": "m1753393169853",
@@ -114,17 +102,15 @@
       "artista": "Supercell",
       "capa": "https://files.catbox.moe/dleqlm.png",
       "audio": "https://files.catbox.moe/w6i5al.mp3",
-      "duracao": 298,
-      "upcoming": false
+      "duracao": 298
     },
     {
       "id": "m1753393268380",
-      "titulo": "Jae-yong, The New Brawler (Menu)",
-      "artista": "Supercell",
+      "titulo": "Jae's Karaoke (Menu 2)",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/0re3yk.png",
       "audio": "https://files.catbox.moe/u1bwxf.mp3",
-      "duracao": 125,
-      "upcoming": false
+      "duracao": 125
     },
     {
       "id": "m1753393420119",
@@ -132,130 +118,116 @@
       "artista": "Supercell",
       "capa": "https://files.catbox.moe/lctl0j.png",
       "audio": "https://files.catbox.moe/ea0tur.mp3",
-      "duracao": 232,
-      "upcoming": false
+      "duracao": 232
     },
     {
       "id": "m1753394236489",
-      "titulo": "Kaze, The New Brawler (Menu)",
-      "artista": "Supercell",
+      "titulo": "Winds of Kaze (Menu)",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/157ka6.png",
       "audio": "https://files.catbox.moe/psdoq0.mp3",
-      "duracao": 224,
-      "upcoming": false
+      "duracao": 224
     },
     {
       "id": "m1753394345580",
       "titulo": "Basket Brawl (Unused)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/s39dl9.png",
       "audio": "https://files.catbox.moe/72ngjm.mp3",
-      "duracao": 430,
-      "upcoming": false
+      "duracao": 430
     },
     {
       "id": "m1753394514859",
       "titulo": "Lunar Lantern (Chinese)",
-      "artista": "Supercell",
+      "artista": "Chinese Composer",
       "capa": "https://files.catbox.moe/xv7km7.png",
       "audio": "https://files.catbox.moe/jui70t.mp3",
-      "duracao": 287,
-      "upcoming": false
+      "duracao": 287
     },
     {
       "id": "m1753394597946",
       "titulo": "Punk Brawl (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/cgthqc.png",
       "audio": "https://files.catbox.moe/fvgbm8.mp3",
-      "duracao": 187,
-      "upcoming": false
+      "duracao": 187
     },
     {
       "id": "m1753394695551",
       "titulo": "The Scrapyard (In Game)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/ndu0d3.png",
       "audio": "https://files.catbox.moe/3n4r7l.mp3",
-      "duracao": 157,
-      "upcoming": false
+      "duracao": 157
     },
     {
       "id": "m1753394803121",
       "titulo": "Sniper Idol (Chinese)",
-      "artista": "Supercell",
+      "artista": "Chinese Composer",
       "capa": "https://files.catbox.moe/daj8f9.png",
       "audio": "https://files.catbox.moe/1on1yh.mp3",
-      "duracao": 227,
-      "upcoming": false
+      "duracao": 227
     },
     {
       "id": "m1753394890913",
-      "titulo": "Alli, The New Brawler (Menu)",
-      "artista": "Supercell",
+      "titulo": "Alli the Alligator (Menu)",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/3trfeg.png",
       "audio": "https://files.catbox.moe/0ro9oo.mp3",
-      "duracao": 318,
-      "upcoming": false
+      "duracao": 318
     },
     {
       "id": "m1753394979832",
       "titulo": "Trunk, The New Brawler (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/ixmdi6.png",
       "audio": "https://files.catbox.moe/vfq31f.mp3",
-      "duracao": 271,
-      "upcoming": false
+      "duracao": 271
     },
     {
       "id": "m1753395068759",
       "titulo": "Mushroom Addiction (Ingame)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/5nrir8.png",
       "audio": "https://files.catbox.moe/msnzk1.mp3",
-      "duracao": 240,
-      "upcoming": false
+      "duracao": 240
     },
     {
       "id": "m1753395131934",
       "titulo": "Boonie Bears (Chinese)",
-      "artista": "Supercell",
+      "artista": "李智平",
       "capa": "https://files.catbox.moe/owghlv.png",
       "audio": "https://files.catbox.moe/16gtcf.mp3",
-      "duracao": 220,
-      "upcoming": false
+      "duracao": 220
     },
     {
       "id": "m1753395250032",
       "titulo": "Starr Gallery (Chinese)",
-      "artista": "Supercell",
+      "artista": "Chinese Composer",
       "capa": "https://files.catbox.moe/w4h8b9.png",
       "audio": "https://files.catbox.moe/n4wlg6.mp3",
-      "duracao": 180,
-      "upcoming": false
+      "duracao": 180
     },
     {
       "id": "m1753395474592",
       "titulo": "Kenji's Recipe (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/0clzxf.png",
       "audio": "https://files.catbox.moe/se8pmh.mp3",
-      "duracao": 273,
-      "upcoming": true
+      "duracao": 273
     },
     {
       "id": "m1753395706159",
       "titulo": "Metal Rockstarr (Menu)",
-      "artista": "Supercell",
+      "artista": "Armin Haas, Musical Bits, Metalverse",
       "capa": "https://files.catbox.moe/22l0td.png",
       "audio": "https://files.catbox.moe/6hfe0p.mp3",
-      "duracao": 234,
-      "upcoming": true
+      "duracao": 234
     },
     {
       "id": "m1753496694753",
       "titulo": "The Swamp Of Love (Ingame)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/xejav5.jpg",
       "audio": "https://files.catbox.moe/y1gf95.wav",
       "duracao": 240
@@ -263,7 +235,7 @@
     {
       "id": "m1753496941910",
       "titulo": "The Underwater Circus (Ingame)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/w8e7ol.jpg",
       "audio": "https://files.catbox.moe/ljg2dg.wav",
       "duracao": 168
@@ -271,7 +243,7 @@
     {
       "id": "m1753497030806",
       "titulo": "Scary Tales (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/rv6vmf.jpg",
       "audio": "https://files.catbox.moe/ydmj58.wav",
       "duracao": 180
@@ -279,7 +251,7 @@
     {
       "id": "m1753497176953",
       "titulo": "The Bizarre Circus (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/cgrd89.png",
       "audio": "https://files.catbox.moe/3dtfrw.wav",
       "duracao": 200
@@ -287,7 +259,7 @@
     {
       "id": "m1753497280032",
       "titulo": "The Codex of Doom (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/7lzfpf.jpg",
       "audio": "https://files.catbox.moe/euk6ng.wav",
       "duracao": 348
@@ -295,7 +267,7 @@
     {
       "id": "m1753497361412",
       "titulo": "The Brawlacademy (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/8xu2fw.png",
       "audio": "https://files.catbox.moe/ya3j1q.wav",
       "duracao": 222
@@ -303,7 +275,7 @@
     {
       "id": "m1753497441979",
       "titulo": "Pinstunt Brawl (Ingame)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/g51qjl.png",
       "audio": "https://files.catbox.moe/8yf0ak.wav",
       "duracao": 243
@@ -311,7 +283,7 @@
     {
       "id": "m1754230058520",
       "titulo": "Piggy Treasure (Ingame)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/h3uzlb.jpg",
       "audio": "https://files.catbox.moe/0eczzl.wav",
       "duracao": 154
@@ -319,7 +291,7 @@
     {
       "id": "m1754230275374",
       "titulo": "Monster Brawl (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/iy70b0.png",
       "audio": "https://files.catbox.moe/ukzy31.wav",
       "duracao": 255
@@ -327,7 +299,7 @@
     {
       "id": "m1754230331957",
       "titulo": "Mystery at The Hub (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/5pdebh.png",
       "audio": "https://files.catbox.moe/skkowy.wav",
       "duracao": 210
@@ -335,7 +307,7 @@
     {
       "id": "m1754230813857",
       "titulo": "Nerd Mode (Extra)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/4tlrjw.png",
       "audio": "https://files.catbox.moe/xykgjn.wav",
       "duracao": 179
@@ -343,7 +315,7 @@
     {
       "id": "m1754230879404",
       "titulo": "Good Randoms Menu (Unused)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/g3lm7e.jpg",
       "audio": "https://files.catbox.moe/txpyb7.wav",
       "duracao": 204
@@ -351,7 +323,7 @@
     {
       "id": "m1754231003023",
       "titulo": "Brawzaar (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/ah6efm.png",
       "audio": "https://files.catbox.moe/8ms4jf.wav",
       "duracao": 315
@@ -359,7 +331,7 @@
     {
       "id": "m1754231058362",
       "titulo": "Hindu (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/lnmr69.png",
       "audio": "https://files.catbox.moe/lh535k.wav",
       "duracao": 200
@@ -445,10 +417,6 @@
     }
   ],
   "upcomingReleases": [
-    {
-      "songId": "m1754230058520",
-      "releaseDate": "2025-08-03T12:00"
-    },
     {
       "songId": "m1754230275374",
       "releaseDate": "2025-08-04T12:00"
