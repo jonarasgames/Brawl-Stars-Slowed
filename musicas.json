@@ -307,6 +307,62 @@
       "capa": "https://files.catbox.moe/g51qjl.png",
       "audio": "https://files.catbox.moe/8yf0ak.wav",
       "duracao": 243
+    },
+    {
+      "id": "m1754230058520",
+      "titulo": "Piggy Treasure (Ingame)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/h3uzlb.jpg",
+      "audio": "https://files.catbox.moe/0eczzl.wav",
+      "duracao": 154
+    },
+    {
+      "id": "m1754230275374",
+      "titulo": "Monster Brawl (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/iy70b0.png",
+      "audio": "https://files.catbox.moe/ukzy31.wav",
+      "duracao": 255
+    },
+    {
+      "id": "m1754230331957",
+      "titulo": "Mystery at The Hub (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/5pdebh.png",
+      "audio": "https://files.catbox.moe/skkowy.wav",
+      "duracao": 210
+    },
+    {
+      "id": "m1754230813857",
+      "titulo": "Nerd Mode (Extra)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/4tlrjw.png",
+      "audio": "https://files.catbox.moe/xykgjn.wav",
+      "duracao": 179
+    },
+    {
+      "id": "m1754230879404",
+      "titulo": "Good Randoms Menu (Unused)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/g3lm7e.jpg",
+      "audio": "https://files.catbox.moe/txpyb7.wav",
+      "duracao": 204
+    },
+    {
+      "id": "m1754231003023",
+      "titulo": "Brawzaar (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/ah6efm.png",
+      "audio": "https://files.catbox.moe/8ms4jf.wav",
+      "duracao": 315
+    },
+    {
+      "id": "m1754231058362",
+      "titulo": "Hindu (Menu)",
+      "artista": "Supercell",
+      "capa": "https://files.catbox.moe/lnmr69.png",
+      "audio": "https://files.catbox.moe/lh535k.wav",
+      "duracao": 200
     }
   ],
   "playlists": [
@@ -334,7 +390,11 @@
         "m1753497030806",
         "m1753497176953",
         "m1753497280032",
-        "m1753497361412"
+        "m1753497361412",
+        "m1754230275374",
+        "m1754230331957",
+        "m1754231003023",
+        "m1754231058362"
       ]
     },
     {
@@ -351,7 +411,8 @@
         "m1753395068759",
         "m1753496694753",
         "m1753496941910",
-        "m1753497441979"
+        "m1753497441979",
+        "m1754230058520"
       ]
     },
     {
@@ -370,42 +431,47 @@
       "nome": "Unused Themes",
       "imagem": "https://files.catbox.moe/u6u4ux.png",
       "musicas": [
-        "m1753394345580"
+        "m1753394345580",
+        "m1754230879404"
+      ]
+    },
+    {
+      "id": "p1754231110938",
+      "nome": "Extra Themes",
+      "imagem": "https://files.catbox.moe/llajco.png",
+      "musicas": [
+        "m1754230813857"
       ]
     }
   ],
   "upcomingReleases": [
     {
-      "songId": "m1753395706159",
-      "releaseDate": "2025-07-26T12:00"
+      "songId": "m1754230058520",
+      "releaseDate": "2025-08-03T12:00"
     },
     {
-      "songId": "m1753496694753",
-      "releaseDate": "2025-07-27T12:00"
+      "songId": "m1754230275374",
+      "releaseDate": "2025-08-04T12:00"
     },
     {
-      "songId": "m1753496941910",
-      "releaseDate": "2025-07-28T12:00"
+      "songId": "m1754230331957",
+      "releaseDate": "2025-08-05T12:00"
     },
     {
-      "songId": "m1753497030806",
-      "releaseDate": "2025-07-29T12:00"
+      "songId": "m1754230813857",
+      "releaseDate": "2025-08-06T12:00"
     },
     {
-      "songId": "m1753497176953",
-      "releaseDate": "2025-07-30T12:00"
+      "songId": "m1754230879404",
+      "releaseDate": "2025-08-07T12:00"
     },
     {
-      "songId": "m1753497280032",
-      "releaseDate": "2025-07-31T12:00"
+      "songId": "m1754231003023",
+      "releaseDate": "2025-08-08T12:00"
     },
     {
-      "songId": "m1753497361412",
-      "releaseDate": "2025-08-01T12:00"
-    },
-    {
-      "songId": "m1753497441979",
-      "releaseDate": "2025-08-02T12:00"
+      "songId": "m1754231058362",
+      "releaseDate": "2025-08-09T12:00"
     }
   ]
 }
