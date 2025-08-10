@@ -335,6 +335,14 @@
       "capa": "https://files.catbox.moe/lnmr69.png",
       "audio": "https://files.catbox.moe/lh535k.wav",
       "duracao": 200
+    },
+   {
+      "id": "m1754231058388",
+      "titulo": "Brawl Dawgs (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/5n6w5e.png",
+      "audio": "https://files.catbox.moe/dnv9v1.wav",
+      "duracao": 238
     }
   ],
   "playlists": [
@@ -366,7 +374,8 @@
         "m1754230275374",
         "m1754230331957",
         "m1754231003023",
-        "m1754231058362"
+        "m1754231058362",
+        "m1754231058388"
       ]
     },
     {
@@ -418,28 +427,8 @@
   ],
   "upcomingReleases": [
     {
-      "songId": "m1754230275374",
-      "releaseDate": "2025-08-04T12:00"
-    },
-    {
-      "songId": "m1754230331957",
-      "releaseDate": "2025-08-05T12:00"
-    },
-    {
-      "songId": "m1754230813857",
-      "releaseDate": "2025-08-06T12:00"
-    },
-    {
-      "songId": "m1754230879404",
-      "releaseDate": "2025-08-07T12:00"
-    },
-    {
-      "songId": "m1754231003023",
-      "releaseDate": "2025-08-08T12:00"
-    },
-    {
-      "songId": "m1754231058362",
-      "releaseDate": "2025-08-09T12:00"
+      "songId": "m1754231058388",
+      "releaseDate": "2025-08-10T12:00"
     }
   ]
 }
