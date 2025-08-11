@@ -336,13 +336,61 @@
       "audio": "https://files.catbox.moe/lh535k.wav",
       "duracao": 200
     },
-   {
+    {
       "id": "m1754231058388",
       "titulo": "Brawl Dawgs (Menu)",
       "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/5n6w5e.png",
       "audio": "https://files.catbox.moe/dnv9v1.wav",
       "duracao": 238
+    },
+    {
+      "id": "m1754938579585",
+      "titulo": "Snowtel (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/5frmxz.png",
+      "audio": "https://files.catbox.moe/jkcmtk.wav",
+      "duracao": 225
+    },
+    {
+      "id": "m1754938664428",
+      "titulo": "The Outlaws (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/mke9qs.png",
+      "audio": "https://files.catbox.moe/x1pjyw.wav",
+      "duracao": 225
+    },
+    {
+      "id": "m1754938732735",
+      "titulo": "Neko Brawl (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/ory4v4.png",
+      "audio": "https://files.catbox.moe/t9ae1b.wav",
+      "duracao": 202
+    },
+    {
+      "id": "m1754938801365",
+      "titulo": "Rockstarr Manor (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/c6lih1.png",
+      "audio": "https://files.catbox.moe/samhte.wav",
+      "duracao": 221
+    },
+    {
+      "id": "m1754939008506",
+      "titulo": "Primo Fire (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/71cp1v.png",
+      "audio": "https://files.catbox.moe/kplbli.wav",
+      "duracao": 269
+    },
+    {
+      "id": "m1754939065843",
+      "titulo": "Cursed Pirates (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/dlxqjn.png",
+      "audio": "https://files.catbox.moe/mrz8i2.wav",
+      "duracao": 147
     }
   ],
   "playlists": [
@@ -375,7 +423,12 @@
         "m1754230331957",
         "m1754231003023",
         "m1754231058362",
-        "m1754231058388"
+        "m1754231058388",
+        "m1754938579585",
+        "m1754938664428",
+        "m1754938732735",
+        "m1754939008506",
+        "m1754939065843"
       ]
     },
     {
@@ -393,7 +446,8 @@
         "m1753496694753",
         "m1753496941910",
         "m1753497441979",
-        "m1754230058520"
+        "m1754230058520",
+        "m1754938801365"
       ]
     },
     {
@@ -427,8 +481,24 @@
   ],
   "upcomingReleases": [
     {
-      "songId": "m1754231058388",
-      "releaseDate": "2025-08-10T12:00"
+      "songId": "m1754938664428",
+      "releaseDate": "2025-08-12T12:00"
+    },
+    {
+      "songId": "m1754938732735",
+      "releaseDate": "2025-08-13T12:00"
+    },
+    {
+      "songId": "m1754938801365",
+      "releaseDate": "2025-08-14T12:00"
+    },
+    {
+      "songId": "m1754939008506",
+      "releaseDate": "2025-08-15T12:00"
+    },
+    {
+      "songId": "m1754939065843",
+      "releaseDate": "2025-08-16T12:00"
     }
   ]
 }
