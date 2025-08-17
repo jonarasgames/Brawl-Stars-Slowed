@@ -391,6 +391,62 @@
       "capa": "https://files.catbox.moe/dlxqjn.png",
       "audio": "https://files.catbox.moe/mrz8i2.wav",
       "duracao": 147
+    },
+    {
+      "id": "m1755458138446",
+      "titulo": "Brawl Hackers 01 (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/v7q1n4.png",
+      "audio": "https://files.catbox.moe/0l8ax7.ogg",
+      "duracao": 202
+    },
+    {
+      "id": "m1755458348864",
+      "titulo": "The Ghost Train (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/rao218.png",
+      "audio": "https://files.catbox.moe/tgj44u.wav",
+      "duracao": 227
+    },
+    {
+      "id": "m1755458524502",
+      "titulo": "The Oddities Shop (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/zvq89v.jpg",
+      "audio": "https://files.catbox.moe/2319k3.wav",
+      "duracao": 219
+    },
+    {
+      "id": "m1755458722785",
+      "titulo": "The Trophy Road (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/s65yzc.jpg",
+      "audio": "https://files.catbox.moe/slykk9.wav",
+      "duracao": 143
+    },
+    {
+      "id": "m1755459073614",
+      "titulo": "Slow Mode - Jae Yong (Extra)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/irvhb5.png",
+      "audio": "https://files.catbox.moe/b6rlcf.ogg",
+      "duracao": 121
+    },
+    {
+      "id": "m1755459212556",
+      "titulo": "Kit’s Mess (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/o63sou.png",
+      "audio": "https://files.catbox.moe/9mqbzb.wav",
+      "duracao": 167
+    },
+    {
+      "id": "m1755459453811",
+      "titulo": "Finx, The New Brawler (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/bctu35.png",
+      "audio": "https://files.catbox.moe/ckd6e6.ogg",
+      "duracao": 205
     }
   ],
   "playlists": [
@@ -428,7 +484,10 @@
         "m1754938664428",
         "m1754938732735",
         "m1754939008506",
-        "m1754939065843"
+        "m1754939065843",
+        "m1755458138446",
+        "m1755458722785",
+        "m1755459453811"
       ]
     },
     {
@@ -447,7 +506,10 @@
         "m1753496941910",
         "m1753497441979",
         "m1754230058520",
-        "m1754938801365"
+        "m1754938801365",
+        "m1755458348864",
+        "m1755458524502",
+        "m1755459212556"
       ]
     },
     {
@@ -475,30 +537,35 @@
       "nome": "Extra Themes",
       "imagem": "https://files.catbox.moe/llajco.png",
       "musicas": [
-        "m1754230813857"
+        "m1754230813857",
+        "m1755459073614"
       ]
     }
   ],
   "upcomingReleases": [
     {
-      "songId": "m1754938664428",
-      "releaseDate": "2025-08-12T12:00"
+      "songId": "m1755458348864",
+      "releaseDate": "2025-08-18T12:00"
     },
     {
-      "songId": "m1754938732735",
-      "releaseDate": "2025-08-13T12:00"
+      "songId": "m1755458524502",
+      "releaseDate": "2025-08-19T12:00"
     },
     {
-      "songId": "m1754938801365",
-      "releaseDate": "2025-08-14T12:00"
+      "songId": "m1755458722785",
+      "releaseDate": "2025-08-20T12:00"
     },
     {
-      "songId": "m1754939008506",
-      "releaseDate": "2025-08-15T12:00"
+      "songId": "m1755459073614",
+      "releaseDate": "2025-08-21T12:00"
     },
     {
-      "songId": "m1754939065843",
-      "releaseDate": "2025-08-16T12:00"
+      "songId": "m1755459212556",
+      "releaseDate": "2025-08-22T12:00"
+    },
+    {
+      "songId": "m1755459453811",
+      "releaseDate": "2025-08-23T12:00"
     }
   ]
 }
