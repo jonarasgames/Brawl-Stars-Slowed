@@ -447,6 +447,46 @@
       "capa": "https://files.catbox.moe/bctu35.png",
       "audio": "https://files.catbox.moe/ckd6e6.ogg",
       "duracao": 205
+    },
+    {
+      "id": "m1759875316392",
+      "titulo": "Mina, The New Brawler (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/atpfdc.png",
+      "audio": "https://files.catbox.moe/9514fc.wav",
+      "duracao": 400
+    },
+    {
+      "id": "m1759875953778",
+      "titulo": "Brawl Surfers (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/139q4z.png",
+      "audio": "https://files.catbox.moe/ylrfdw.wav",
+      "duracao": 427
+    },
+    {
+      "id": "m1759876051898",
+      "titulo": "Laser Space Tag Battle 3 (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/b0kwtf.png",
+      "audio": "https://files.catbox.moe/qc4qsm.wav",
+      "duracao": 150
+    },
+    {
+      "id": "m1759876220061",
+      "titulo": "Tokyo from Subway Surfers Event ~ Week 4 (Unused)",
+      "artista": "Mikkel Fabricius Smitt",
+      "capa": "https://files.catbox.moe/dblrpg.png",
+      "audio": "https://files.catbox.moe/3bfqar.wav",
+      "duracao": 417
+    },
+    {
+      "id": "m1759876371488",
+      "titulo": "Rio from Subway Surfers Event ~ Week 3 (Unused)",
+      "artista": "Mikkel Fabricius Smitt",
+      "capa": "https://files.catbox.moe/2wj29s.png",
+      "audio": "https://files.catbox.moe/vm5fnv.wav",
+      "duracao": 417
     }
   ],
   "playlists": [
@@ -487,7 +527,8 @@
         "m1754939065843",
         "m1755458138446",
         "m1755458722785",
-        "m1755459453811"
+        "m1755459453811",
+        "m1759875316392"
       ]
     },
     {
@@ -509,7 +550,8 @@
         "m1754938801365",
         "m1755458348864",
         "m1755458524502",
-        "m1755459212556"
+        "m1755459212556",
+        "m1759876051898"
       ]
     },
     {
@@ -529,7 +571,9 @@
       "imagem": "https://files.catbox.moe/u6u4ux.png",
       "musicas": [
         "m1753394345580",
-        "m1754230879404"
+        "m1754230879404",
+        "m1759876220061",
+        "m1759876371488"
       ]
     },
     {
@@ -544,28 +588,20 @@
   ],
   "upcomingReleases": [
     {
-      "songId": "m1755458348864",
-      "releaseDate": "2025-08-18T12:00"
+      "songId": "m1759875953778",
+      "releaseDate": "2025-10-08T12:00"
     },
     {
-      "songId": "m1755458524502",
-      "releaseDate": "2025-08-19T12:00"
+      "songId": "m1759876051898",
+      "releaseDate": "2025-10-09T12:00"
     },
     {
-      "songId": "m1755458722785",
-      "releaseDate": "2025-08-20T12:00"
+      "songId": "m1759876220061",
+      "releaseDate": "2025-10-10T12:00"
     },
     {
-      "songId": "m1755459073614",
-      "releaseDate": "2025-08-21T12:00"
-    },
-    {
-      "songId": "m1755459212556",
-      "releaseDate": "2025-08-22T12:00"
-    },
-    {
-      "songId": "m1755459453811",
-      "releaseDate": "2025-08-23T12:00"
+      "songId": "m1759876371488",
+      "releaseDate": "2025-10-11T12:00"
     }
   ]
 }
