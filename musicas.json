@@ -487,6 +487,62 @@
       "capa": "https://files.catbox.moe/2wj29s.png",
       "audio": "https://files.catbox.moe/vm5fnv.wav",
       "duracao": 417
+    },
+    {
+      "id": "m1760289643781",
+      "titulo": "Brawl Royale (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/f04fo3.png",
+      "audio": "https://files.catbox.moe/zmeqre.wav",
+      "duracao": 227
+    },
+    {
+      "id": "m1760289695416",
+      "titulo": "Footbrawl (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/pzgf9y.png",
+      "audio": "https://files.catbox.moe/nzqnlf.wav",
+      "duracao": 262
+    },
+    {
+      "id": "m1760289804560",
+      "titulo": "Sweet Candy (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/02uerq.png",
+      "audio": "https://files.catbox.moe/yaod1m.wav",
+      "duracao": 190
+    },
+    {
+      "id": "m1760289896203",
+      "titulo": "A StarrToon Cartoon (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/5jqbrh.png",
+      "audio": "https://files.catbox.moe/f4gvu9.wav",
+      "duracao": 187
+    },
+    {
+      "id": "m1760290016230",
+      "titulo": "Trashing in the SnowBrawl 1 Remake (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/kh81g4.png",
+      "audio": "https://files.catbox.moe/bzbc7p.wav",
+      "duracao": 197
+    },
+    {
+      "id": "m1760290102486",
+      "titulo": "Lumi, The New Brawler (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/6ima4w.png",
+      "audio": "https://files.catbox.moe/pta3no.wav",
+      "duracao": 331
+    },
+    {
+      "id": "m1760290182617",
+      "titulo": "Dino Brawl (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/kcfsi6.png",
+      "audio": "https://files.catbox.moe/88eo9a.wav",
+      "duracao": 206
     }
   ],
   "playlists": [
@@ -528,7 +584,12 @@
         "m1755458138446",
         "m1755458722785",
         "m1755459453811",
-        "m1759875316392"
+        "m1759875316392",
+        "m1760289643781",
+        "m1760289695416",
+        "m1760289896203",
+        "m1760290102486",
+        "m1760290182617"
       ]
     },
     {
@@ -551,8 +612,10 @@
         "m1755458348864",
         "m1755458524502",
         "m1755459212556",
+        "m1759875953778",
         "m1759876051898",
-        "m1759875953778"
+        "m1760289804560",
+        "m1760290016230"
       ]
     },
     {
@@ -589,20 +652,28 @@
   ],
   "upcomingReleases": [
     {
-      "songId": "m1759875953778",
-      "releaseDate": "2025-10-08T12:00"
+      "songId": "m1760289695416",
+      "releaseDate": "2025-10-13T12:00"
     },
     {
-      "songId": "m1759876051898",
-      "releaseDate": "2025-10-09T12:00"
+      "songId": "m1760289804560",
+      "releaseDate": "2025-10-14T12:00"
     },
     {
-      "songId": "m1759876220061",
-      "releaseDate": "2025-10-10T12:00"
+      "songId": "m1760289896203",
+      "releaseDate": "2025-10-15T12:00"
     },
     {
-      "songId": "m1759876371488",
-      "releaseDate": "2025-10-11T12:00"
+      "songId": "m1760290016230",
+      "releaseDate": "2025-10-16T12:00"
+    },
+    {
+      "songId": "m1760290102486",
+      "releaseDate": "2025-10-17T12:00"
+    },
+    {
+      "songId": "m1760290182617",
+      "releaseDate": "2025-10-18T12:00"
     }
   ]
 }
