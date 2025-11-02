@@ -599,6 +599,62 @@
       "capa": "https://files.catbox.moe/s34hrr.png",
       "audio": "https://files.catbox.moe/hpjc6h.wav",
       "duracao": 139
+    },
+    {
+      "id": "m1762089028219",
+      "titulo": "Hatchling Rescue Battle (Squad Busters)",
+      "artista": "Guillem Rejón Pérez",
+      "capa": "https://files.catbox.moe/vyj7ji.png",
+      "audio": "https://files.catbox.moe/9tj199.wav",
+      "duracao": 380
+    },
+    {
+      "id": "m1762089243361",
+      "titulo": "Beach World Battle (Squad Busters)",
+      "artista": "Guillem Rejón Pérez",
+      "capa": "https://files.catbox.moe/fmpc6o.png",
+      "audio": "https://files.catbox.moe/mltkfd.wav",
+      "duracao": 379
+    },
+    {
+      "id": "m1762089382828",
+      "titulo": "Sonic the Hedgehog Battle (Squad Busters)",
+      "artista": "Guillem Rejón Pérez",
+      "capa": "https://files.catbox.moe/yn1rqt.png",
+      "audio": "https://files.catbox.moe/a3tgzq.wav",
+      "duracao": 365
+    },
+    {
+      "id": "m1762089665975",
+      "titulo": "Arcade Battle (Squad Busters)",
+      "artista": "Guillem Rejón Pérez",
+      "capa": "https://files.catbox.moe/zvigrl.png",
+      "audio": "https://files.catbox.moe/u6ppin.wav",
+      "duracao": 364
+    },
+    {
+      "id": "m1762089953125",
+      "titulo": "Main Menu Destroyed (Squad Busters)",
+      "artista": "Guillem Rejón Pérez",
+      "capa": "https://files.catbox.moe/e83v8k.png",
+      "audio": "https://files.catbox.moe/p4vpv9.wav",
+      "duracao": 207
+    },
+    {
+      "id": "m1762090100328",
+      "titulo": "Beta Main Menu (Squad Busters)",
+      "artista": "Guillem Rejón Pérez",
+      "capa": "https://files.catbox.moe/0lk6o3.png",
+      "audio": "https://files.catbox.moe/2n4bu8.wav",
+      "duracao": 200
+    },
+    {
+      "id": "m1762090259191",
+      "titulo": "Global Main Menu (Squad Busters)",
+      "artista": "Guillem Rejón Pérez",
+      "capa": "https://files.catbox.moe/958jhm.png",
+      "audio": "https://files.catbox.moe/sj76tq.wav",
+      "duracao": 211
     }
   ],
   "playlists": [
@@ -711,32 +767,50 @@
         "m1755459073614",
         "m1760962442988"
       ]
+    },
+    {
+      "id": "p1762088921812",
+      "nome": "Squad Busters Themes",
+      "imagem": "https://files.catbox.moe/v6ojz0.png",
+      "musicas": [
+        "m1762089028219",
+        "m1762089243361",
+        "m1762089382828",
+        "m1762089665975",
+        "m1762089953125",
+        "m1762090100328",
+        "m1762090259191"
+      ]
     }
   ],
   "upcomingReleases": [
     {
-      "songId": "m1760721701749",
-      "releaseDate": "2025-10-20T12:00"
+      "songId": "m1762089028219",
+      "releaseDate": "2025-11-02T12:00"
     },
     {
-      "songId": "m1760961787766",
-      "releaseDate": "2025-10-21T12:00"
+      "songId": "m1762089243361",
+      "releaseDate": "2025-11-03T12:00"
     },
     {
-      "songId": "m1760961849562",
-      "releaseDate": "2025-10-22T12:00"
+      "songId": "m1762089382828",
+      "releaseDate": "2025-11-04T12:00"
     },
     {
-      "songId": "m1760961900485",
-      "releaseDate": "2025-10-23T12:00"
+      "songId": "m1762089665975",
+      "releaseDate": "2025-11-05T12:00"
     },
     {
-      "songId": "m1760962442988",
-      "releaseDate": "2025-10-24T12:00"
+      "songId": "m1762089953125",
+      "releaseDate": "2025-11-06T12:00"
     },
     {
-      "songId": "m1760962468812",
-      "releaseDate": "2025-10-25T12:00"
+      "songId": "m1762090100328",
+      "releaseDate": "2025-11-07T12:00"
+    },
+    {
+      "songId": "m1762090259191",
+      "releaseDate": "2025-11-08T12:00"
     }
   ]
 }
