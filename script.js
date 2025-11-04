@@ -8,6 +8,7 @@ let isShuffleOn = false;
 let isRepeatOn = false;
 let audioPlayer = new Audio();
 let shuffleHistory = [];
+let imageObserver = null;
 
 // Elementos DOM
 const domElements = {
@@ -33,6 +34,51 @@ const domElements = {
     playlistFilter: document.getElementById('playlist-filter')
 };
 
+// Sistema de carregamento de imagens com Intersection Observer
+function initImageLoading() {
+    if ('IntersectionObserver' in window) {
+        imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+    }
+}
+
+// Função para observar uma imagem
+function observeImage(img) {
+    if (imageObserver && img.dataset.src) {
+        imageObserver.observe(img);
+    } else if (img.dataset.src) {
+        // Fallback para navegadores sem suporte a IntersectionObserver
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+    }
+}
+
+// Preload de imagens críticas
+function preloadCriticalImages() {
+    const criticalImages = [
+        'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400',
+        'https://files.catbox.moe/lw3upq.png',
+        'https://files.catbox.moe/7mnub3.png',
+        'https://files.catbox.moe/1cx0ek.png'
+    ];
+    
+    criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
 // Carregar dados do JSON
 async function loadData() {
     try {
@@ -45,6 +91,10 @@ async function loadData() {
             imagem: playlist.imagem || "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400"
         }));
         upcomingReleases = data.upcomingReleases || [];
+        
+        // Inicializar sistema de carregamento de imagens
+        initImageLoading();
+        preloadCriticalImages();
         
         checkAndUnlockReleases();
         renderPlaylists();
@@ -91,10 +141,10 @@ function renderPlaylists() {
         const playlistCard = document.createElement('div');
         playlistCard.className = 'playlist-card';
         playlistCard.innerHTML = `
-            <img src="${playlist.imagem}" 
-                 alt="${playlist.nome}" class="playlist-icon">
-            <img src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9tc0FZbjFLZG9Zbmg3THg5cE1ody5wbmcifQ:supercell:AjL67My6-d2z9WLXX-MO-U_mMxiKf6iefpj5wQHkMJ8?width=2400" 
-                 alt="" class="playlist-folder">
+            <img data-src="${playlist.imagem}" 
+                 alt="${playlist.nome}" class="playlist-icon lazy">
+            <img data-src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9tc0FZbjFLZG9Zbmg3THg5cE1ody5wbmcifQ:supercell:AjL67My6-d2z9WLXX-MO-U_mMxiKf6iefpj5wQHkMJ8?width=2400" 
+                 alt="" class="playlist-folder lazy">
             <h3 class="playlist-name">${playlist.nome}</h3>
             <span class="playlist-count">${playlist.musicas.length} músicas</span>
         `;
@@ -104,6 +154,10 @@ function renderPlaylists() {
         });
         
         domElements.playlistsContainer.appendChild(playlistCard);
+        
+        // Observar imagens para carregamento lazy
+        const images = playlistCard.querySelectorAll('img.lazy');
+        images.forEach(img => observeImage(img));
     });
 }
 
@@ -123,7 +177,7 @@ function renderSongs(filteredSongs = null) {
         const playlistInfo = playlists.find(p => p.musicas.includes(song.id));
         
         songCard.innerHTML = `
-            <img src="${song.capa}" alt="${song.titulo}" class="song-cover">
+            <img data-src="${song.capa}" alt="${song.titulo}" class="song-cover lazy">
             <div class="song-info-container">
                 <h3 class="song-title">${song.titulo}</h3>
                 <p class="song-artist">${song.artista}</p>
@@ -147,6 +201,10 @@ function renderSongs(filteredSongs = null) {
         }
         
         domElements.songsContainer.appendChild(songCard);
+        
+        // Observar imagem para carregamento lazy
+        const img = songCard.querySelector('img.lazy');
+        if (img) observeImage(img);
     });
 }
 
@@ -178,7 +236,7 @@ function renderUpcomingReleases() {
         
         upcomingItem.innerHTML = `
             <div class="upcoming-header">
-                <img src="${song.capa}" alt="${song.titulo}" class="upcoming-cover">
+                <img data-src="${song.capa}" alt="${song.titulo}" class="upcoming-cover lazy">
                 <div class="upcoming-info">
                     <h3>${song.titulo}</h3>
                     <p>${song.artista}</p>
@@ -214,6 +272,10 @@ function renderUpcomingReleases() {
         `;
         
         domElements.upcomingContainer.appendChild(upcomingItem);
+        
+        // Observar imagem para carregamento lazy
+        const img = upcomingItem.querySelector('img.lazy');
+        if (img) observeImage(img);
         
         // Iniciar contagem regressiva se ainda não lançou
         if (timeDiff > 0) {
@@ -296,7 +358,13 @@ function loadSong(index) {
     
     domElements.currentSongTitle.textContent = song.titulo;
     domElements.currentSongArtist.textContent = song.artista;
+    
+    // Carregar imagem do player imediatamente (sem lazy loading)
     domElements.currentSongCover.src = song.capa;
+    domElements.currentSongCover.onerror = function() {
+        this.src = 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400';
+    };
+    
     domElements.audioPlayer.src = song.audio;
     domElements.duration.textContent = formatTime(song.duracao);
     
@@ -479,6 +547,17 @@ function searchSongs() {
     renderSongs(filteredSongs);
 }
 
+// Forçar carregamento de todas as imagens visíveis
+function forceLoadVisibleImages() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    lazyImages.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            observeImage(img);
+        }
+    });
+}
+
 // Event listeners
 function setupEventListeners() {
     // Controles do player
@@ -538,6 +617,10 @@ function setupEventListeners() {
     domElements.playlistFilter.addEventListener('change', () => {
         filterByPlaylist(domElements.playlistFilter.value);
     });
+    
+    // Carregar imagens visíveis durante o scroll
+    window.addEventListener('scroll', forceLoadVisibleImages);
+    window.addEventListener('resize', forceLoadVisibleImages);
 }
 
 // Inicialização
