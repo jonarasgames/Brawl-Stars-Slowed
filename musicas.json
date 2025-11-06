@@ -655,6 +655,62 @@
       "capa": "https://files.catbox.moe/958jhm.png",
       "audio": "https://files.catbox.moe/sj76tq.wav",
       "duracao": 211
+    },
+    {
+      "id": "m1762430089301",
+      "titulo": "Stranger Brawl (Menu)",
+      "artista": "Kyle Dixon & Michael Stein",
+      "capa": "https://files.catbox.moe/3cfvl6.png",
+      "audio": "https://files.catbox.moe/g9ch70.wav",
+      "duracao": 191
+    },
+    {
+      "id": "m1762430143636",
+      "titulo": "Stranger Brawl (Ingame 1)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/8xku85.png",
+      "audio": "https://files.catbox.moe/y0el8k.wav",
+      "duracao": 250
+    },
+    {
+      "id": "m1762430186984",
+      "titulo": "Lunar New Year 2025 (Chinese)",
+      "artista": "Chinese Composer",
+      "capa": "https://files.catbox.moe/q7iahj.png",
+      "audio": "https://files.catbox.moe/qg8zxd.wav",
+      "duracao": 428
+    },
+    {
+      "id": "m1762430217436",
+      "titulo": "Stranger Brawl (Ingame 2)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/mn19df.png",
+      "audio": "https://files.catbox.moe/qhcnnp.wav",
+      "duracao": 274
+    },
+    {
+      "id": "m1762431169221",
+      "titulo": "Brawly Meny (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/57dhoy.png",
+      "audio": "https://files.catbox.moe/id1uxp.wav",
+      "duracao": 437
+    },
+    {
+      "id": "m1762431391667",
+      "titulo": "Retropolis Weekend (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/ylxjg8.png",
+      "audio": "https://files.catbox.moe/tnq1q0.wav",
+      "duracao": 188
+    },
+    {
+      "id": "m1762431416179",
+      "titulo": "Sweet Candy Instrumental (Extra)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/ko2xlt.png",
+      "audio": "https://files.catbox.moe/ixwhb4.wav",
+      "duracao": 217
     }
   ],
   "playlists": [
@@ -664,25 +720,36 @@
       "imagem": "https://files.catbox.moe/lw3upq.png",
       "musicas": [
         "m1",
+        "m1753390177449",
+        "m1753390496847",
         "m1753390820106",
         "m1753391604441",
+        "m1753391929189",
         "m1753392172372",
         "m1753392306979",
         "m1753392403802",
         "m1753392564299",
+        "m1753392865231",
+        "m1753393094617",
         "m1753393169853",
         "m1753393268380",
         "m1753393420119",
         "m1753394236489",
         "m1753394597946",
+        "m1753394695551",
         "m1753394890913",
         "m1753394979832",
+        "m1753395068759",
         "m1753395474592",
         "m1753395706159",
+        "m1753496694753",
+        "m1753496941910",
         "m1753497030806",
         "m1753497176953",
         "m1753497280032",
         "m1753497361412",
+        "m1753497441979",
+        "m1754230058520",
         "m1754230275374",
         "m1754230331957",
         "m1754231003023",
@@ -691,20 +758,34 @@
         "m1754938579585",
         "m1754938664428",
         "m1754938732735",
+        "m1754938801365",
         "m1754939008506",
         "m1754939065843",
         "m1755458138446",
+        "m1755458348864",
+        "m1755458524502",
         "m1755458722785",
+        "m1755459212556",
         "m1755459453811",
         "m1759875316392",
+        "m1759875953778",
+        "m1759876051898",
         "m1760289643781",
         "m1760289695416",
+        "m1760289804560",
         "m1760289896203",
+        "m1760290016230",
         "m1760290102486",
         "m1760290182617",
         "m1760721701749",
         "m1760961787766",
-        "m1760961900485"
+        "m1760961900485",
+        "m1760962468812",
+        "m1762430089301",
+        "m1762430143636",
+        "m1762430217436",
+        "m1762431169221",
+        "m1762431391667"
       ]
     },
     {
@@ -731,7 +812,9 @@
         "m1759876051898",
         "m1760289804560",
         "m1760290016230",
-        "m1760962468812"
+        "m1760962468812",
+        "m1762430143636",
+        "m1762430217436"
       ]
     },
     {
@@ -744,7 +827,8 @@
         "m1753395131934",
         "m1753395250032",
         "m1760721664386",
-        "m1760961849562"
+        "m1760961849562",
+        "m1762430186984"
       ]
     },
     {
@@ -765,7 +849,8 @@
       "musicas": [
         "m1754230813857",
         "m1755459073614",
-        "m1760962442988"
+        "m1760962442988",
+        "m1762431416179"
       ]
     },
     {
@@ -785,32 +870,44 @@
   ],
   "upcomingReleases": [
     {
-      "songId": "m1762089028219",
-      "releaseDate": "2025-11-02T12:00"
-    },
-    {
-      "songId": "m1762089243361",
-      "releaseDate": "2025-11-03T12:00"
-    },
-    {
-      "songId": "m1762089382828",
-      "releaseDate": "2025-11-04T12:00"
-    },
-    {
-      "songId": "m1762089665975",
-      "releaseDate": "2025-11-05T12:00"
+      "songId": "m1762090259191",
+      "releaseDate": "2025-11-08T12:00"
     },
     {
       "songId": "m1762089953125",
-      "releaseDate": "2025-11-06T12:00"
+      "releaseDate": "2025-11-10T15:00:00.000Z"
     },
     {
       "songId": "m1762090100328",
-      "releaseDate": "2025-11-07T12:00"
+      "releaseDate": "2025-11-11T15:00:00.000Z"
     },
     {
-      "songId": "m1762090259191",
-      "releaseDate": "2025-11-08T12:00"
+      "songId": "m1762430089301",
+      "releaseDate": "2025-11-06T15:00:00.000Z"
+    },
+    {
+      "songId": "m1762430143636",
+      "releaseDate": "2025-11-07T15:00:00.000Z"
+    },
+    {
+      "songId": "m1762430217436",
+      "releaseDate": "2025-11-09T15:00:00.000Z"
+    },
+    {
+      "songId": "m1762430186984",
+      "releaseDate": "2025-11-12T15:00:00.000Z"
+    },
+    {
+      "songId": "m1762431169221",
+      "releaseDate": "2025-11-13T15:00:00.000Z"
+    },
+    {
+      "songId": "m1762431391667",
+      "releaseDate": "2025-11-14T15:00:00.000Z"
+    },
+    {
+      "songId": "m1762431416179",
+      "releaseDate": "2025-11-15T15:00:00.000Z"
     }
   ]
 }
