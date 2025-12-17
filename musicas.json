@@ -99,7 +99,7 @@
     {
       "id": "m1753393169853",
       "titulo": "Crush the Kaiju (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/dleqlm.png",
       "audio": "https://files.catbox.moe/w6i5al.mp3",
       "duracao": 298
@@ -115,7 +115,7 @@
     {
       "id": "m1753393420119",
       "titulo": "Katana Kingdom (Menu)",
-      "artista": "Supercell",
+      "artista": "Martin Schjøler",
       "capa": "https://files.catbox.moe/lctl0j.png",
       "audio": "https://files.catbox.moe/ea0tur.mp3",
       "duracao": 232
@@ -711,6 +711,62 @@
       "capa": "https://files.catbox.moe/ko2xlt.png",
       "audio": "https://files.catbox.moe/ixwhb4.wav",
       "duracao": 217
+    },
+    {
+      "id": "m1765988884784",
+      "titulo": "Starr Aqua (Ingame)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/fpscnm.png",
+      "audio": "https://files.catbox.moe/axne1i.wav",
+      "duracao": 224
+    },
+    {
+      "id": "m1765988938726",
+      "titulo": "Brawlentines 2026 (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/fwhrd6.png",
+      "audio": "https://files.catbox.moe/g51uka.wav",
+      "duracao": 342
+    },
+    {
+      "id": "m1765988988675",
+      "titulo": "Glowbert, The New Brawler (Menu 2)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/419x4i.png",
+      "audio": "https://files.catbox.moe/xt1kcn.wav",
+      "duracao": 292
+    },
+    {
+      "id": "m1765989042475",
+      "titulo": "Glowbert, The New Brawler (Menu 1)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/s3yllr.png",
+      "audio": "https://files.catbox.moe/ye7qvc.wav",
+      "duracao": 292
+    },
+    {
+      "id": "m1765989094100",
+      "titulo": "Steampunk Brawl (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/pkeyc7.png",
+      "audio": "https://files.catbox.moe/duws5c.wav",
+      "duracao": 240
+    },
+    {
+      "id": "m1765989129655",
+      "titulo": "Pierce, The New Brawler (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/gr08a4.png",
+      "audio": "https://files.catbox.moe/y5u3un.wav",
+      "duracao": 295
+    },
+    {
+      "id": "m1765989169751",
+      "titulo": "Top Gun Action Brawl (Menu)",
+      "artista": "Martin Schjøler",
+      "capa": "https://files.catbox.moe/mtjxwy.png",
+      "audio": "https://files.catbox.moe/73103b.wav",
+      "duracao": 318
     }
   ],
   "playlists": [
@@ -719,6 +775,12 @@
       "nome": "Menu Themes",
       "imagem": "https://files.catbox.moe/lw3upq.png",
       "musicas": [
+        "m1765989169751",
+        "m1765989129655",
+        "m1765989094100",
+        "m1765989042475",
+        "m1765988988675",
+        "m1765988938726",
         "m1762431391667",
         "m1762431169221",
         "m1762430089301",
@@ -771,28 +833,32 @@
       "nome": "In Game Themes",
       "imagem": "https://files.catbox.moe/7mnub3.png",
       "musicas": [
-        "m1753390177449",
-        "m1753390496847",
-        "m1753391929189",
-        "m1753392865231",
-        "m1753393094617",
-        "m1753394695551",
-        "m1753395068759",
-        "m1753496694753",
-        "m1753496941910",
-        "m1753497441979",
-        "m1754230058520",
-        "m1754938801365",
-        "m1755458348864",
-        "m1755458524502",
-        "m1755459212556",
-        "m1759875953778",
-        "m1759876051898",
-        "m1760289804560",
-        "m1760290016230",
-        "m1760962468812",
+        "m1765988884784",
+        "m1762430217436",
         "m1762430143636",
-        "m1762430217436"
+        "m1760962468812",
+        "m1760962442988",
+        "m1760290016230",
+        "m1760289804560",
+        "m1759876051898",
+        "m1759875953778",
+        "m1755459212556",
+        "m1755459073614",
+        "m1755458524502",
+        "m1755458348864",
+        "m1754938801365",
+        "m1754230813857",
+        "m1754230058520",
+        "m1753497441979",
+        "m1753496941910",
+        "m1753496694753",
+        "m1753395068759",
+        "m1753394695551",
+        "m1753393094617",
+        "m1753392865231",
+        "m1753391929189",
+        "m1753390496847",
+        "m1753390177449"
       ]
     },
     {
@@ -825,10 +891,10 @@
       "nome": "Extra Themes",
       "imagem": "https://files.catbox.moe/llajco.png",
       "musicas": [
-        "m1754230813857",
-        "m1755459073614",
+        "m1762431416179",
         "m1760962442988",
-        "m1762431416179"
+        "m1755459073614",
+        "m1754230813857"
       ]
     },
     {
@@ -848,44 +914,28 @@
   ],
   "upcomingReleases": [
     {
-      "songId": "m1762090259191",
-      "releaseDate": "2025-11-08T12:00"
+      "songId": "m1765988938726",
+      "releaseDate": "2025-12-18T15:00:00.000Z"
     },
     {
-      "songId": "m1762089953125",
-      "releaseDate": "2025-11-10T15:00:00.000Z"
+      "songId": "m1765988988675",
+      "releaseDate": "2025-12-19T15:00:00.000Z"
     },
     {
-      "songId": "m1762090100328",
-      "releaseDate": "2025-11-11T15:00:00.000Z"
+      "songId": "m1765989042475",
+      "releaseDate": "2025-12-20T15:00:00.000Z"
     },
     {
-      "songId": "m1762430089301",
-      "releaseDate": "2025-11-06T15:00:00.000Z"
+      "songId": "m1765989094100",
+      "releaseDate": "2025-12-21T15:00:00.000Z"
     },
     {
-      "songId": "m1762430143636",
-      "releaseDate": "2025-11-07T15:00:00.000Z"
+      "songId": "m1765989129655",
+      "releaseDate": "2025-12-22T15:00:00.000Z"
     },
     {
-      "songId": "m1762430217436",
-      "releaseDate": "2025-11-09T15:00:00.000Z"
-    },
-    {
-      "songId": "m1762430186984",
-      "releaseDate": "2025-11-12T15:00:00.000Z"
-    },
-    {
-      "songId": "m1762431169221",
-      "releaseDate": "2025-11-13T15:00:00.000Z"
-    },
-    {
-      "songId": "m1762431391667",
-      "releaseDate": "2025-11-14T15:00:00.000Z"
-    },
-    {
-      "songId": "m1762431416179",
-      "releaseDate": "2025-11-15T15:00:00.000Z"
+      "songId": "m1765989169751",
+      "releaseDate": "2025-12-23T15:00:00.000Z"
     }
   ]
-}
+    }
