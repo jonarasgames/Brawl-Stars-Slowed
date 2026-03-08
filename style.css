@@ -1140,3 +1140,69 @@ body {
 }
 
 .vandal-box, .upcoming-item, .song-card, .playlist-card { overflow: visible; }
+
+/* ===== Redesign clean pass ===== */
+.section-helper {
+    margin-top: 0.4rem;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.92rem;
+}
+
+.vandal-box::after,
+.upcoming-item::after,
+.song-card::after,
+.playlist-card::after {
+    display: none;
+}
+
+.vandal-box,
+.song-card,
+.playlist-card,
+.upcoming-item {
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.24);
+    background: linear-gradient(180deg, rgba(20,31,44,0.88), rgba(10,18,27,0.9));
+}
+
+.dashboard-layout {
+    grid-template-columns: 1.2fr 0.95fr;
+    gap: 1.5rem;
+}
+
+.countdown-section .spray-title {
+    color: #ffe38b;
+}
+
+.upcoming-grid {
+    gap: 1rem;
+}
+
+.upcoming-item {
+    padding: 1rem;
+}
+
+.upcoming-info h3 {
+    font-size: 1.2rem;
+}
+
+.controls {
+    gap: 0.65rem;
+}
+
+.spray-btn {
+    border-radius: 12px;
+    width: 46px;
+    height: 46px;
+}
+
+.play-btn {
+    width: 60px;
+    height: 60px;
+}
+
+@media (max-width: 980px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+}
