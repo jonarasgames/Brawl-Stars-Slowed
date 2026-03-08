@@ -32,6 +32,7 @@
     <header class="vandal-header">
         <div class="ripped-paper-top"></div>
         <h1 class="title-spray">BRAWL STARS <span class="slowed-spray">SLOWED</span></h1>
+        <p class="header-subtitle">As trilhas oficiais em versão slowed + reverb, organizadas por playlist.</p>
         <div class="spray-drips"></div>
     </header>
 
@@ -59,13 +60,18 @@
                         <span id="duration">0:00</span>
                     </div>
                     <div class="controls">
-                        <button id="shuffle-btn" class="spray-btn" title="Aleatório">🔀</button>
-                        <button id="prev-btn" class="spray-btn">⏮</button>
-                        <button id="play-btn" class="spray-btn play-btn">▶</button>
-                        <button id="next-btn" class="spray-btn">⏭</button>
-                        <button id="repeat-btn" class="spray-btn" title="Repetir">🔁</button>
-                        <button id="volume-btn" class="spray-btn">🔊</button>
+                        <button id="surprise-btn" class="spray-btn" title="Surpreender" aria-label="Tocar uma música aleatória">🎲</button>
+                        <button id="shuffle-btn" class="spray-btn" title="Aleatório" aria-label="Ativar modo aleatório">🔀</button>
+                        <button id="prev-btn" class="spray-btn" aria-label="Música anterior">⏮</button>
+                        <button id="play-btn" class="spray-btn play-btn" aria-label="Tocar">▶</button>
+                        <button id="next-btn" class="spray-btn" aria-label="Próxima música">⏭</button>
+                        <button id="repeat-btn" class="spray-btn" title="Repetir" aria-label="Ativar repetição">🔁</button>
+                        <button id="volume-btn" class="spray-btn" aria-label="Silenciar">🔊</button>
                         <input type="range" id="volume-control" class="volume-control" min="0" max="1" step="0.1" value="0.7">
+                    </div>
+                    <div class="utility-actions">
+                        <button id="copy-song-btn" class="utility-btn" type="button">🔗 Copiar link da música</button>
+                        <button id="scroll-current-btn" class="utility-btn" type="button">🎯 Ir para música atual</button>
                     </div>
                 </div>
             </div>

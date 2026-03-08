@@ -11,6 +11,8 @@
     --accent-color: #FFD700;
     --text-color: #FFFFFF;
     --dark-bg: #0A0E12;
+    --surface: rgba(15, 25, 35, 0.78);
+    --surface-strong: rgba(12, 19, 28, 0.92);
     --spray-effect: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q30,10 40,20 T60,20 T80,20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>');
 }
 
@@ -25,6 +27,12 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    line-height: 1.4;
+}
+
+.main-content {
+    width: min(1280px, calc(100% - 2rem));
+    margin: 0 auto;
 }
 
 .background-overlay {
@@ -53,9 +61,17 @@ body {
 /* Estilos do cabeçalho */
 .vandal-header {
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     position: relative;
     margin-bottom: 2rem;
+}
+
+.header-subtitle {
+    max-width: 760px;
+    margin: 0.4rem auto 0;
+    padding: 0 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
 }
 
 .ripped-paper-top {
@@ -115,7 +131,7 @@ body {
 }
 
 .upcoming-item {
-    background-color: rgba(15, 25, 35, 0.7);
+    background-color: var(--surface);
     border: 2px solid var(--primary-color);
     border-radius: 10px;
     padding: 1.5rem;
@@ -263,7 +279,7 @@ body {
 }
 
 .vandal-box {
-    background-color: rgba(15, 25, 35, 0.7);
+    background-color: var(--surface-strong);
     border: 3px solid var(--primary-color);
     border-radius: 10px;
     padding: 1.5rem;
@@ -381,6 +397,7 @@ body {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .spray-btn::before {
@@ -408,6 +425,15 @@ body {
     background-color: var(--accent-color);
     color: var(--secondary-color);
     box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.spray-btn:focus-visible,
+.spray-input:focus-visible,
+.spray-select:focus-visible,
+.progress-bar:focus-visible,
+.volume-control:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 .play-btn {
@@ -516,7 +542,7 @@ body {
 }
 
 .playlist-card {
-    background-color: rgba(15, 25, 35, 0.7);
+    background-color: var(--surface);
     border: 2px solid var(--primary-color);
     border-radius: 10px;
     padding: 1.5rem;
@@ -597,7 +623,7 @@ body {
 }
 
 .song-card {
-    background-color: rgba(15, 25, 35, 0.7);
+    background-color: var(--surface);
     border: 2px solid var(--primary-color);
     border-radius: 10px;
     padding: 1.5rem;
@@ -614,6 +640,12 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-color: var(--accent-color);
+}
+
+.song-card.upcoming {
+    cursor: not-allowed;
+    opacity: 0.72;
+    filter: grayscale(0.15);
 }
 
 .song-card::before {
@@ -887,5 +919,141 @@ body {
     .play-btn {
         width: 55px;
         height: 55px;
+    }
+}
+
+/* ===== TAPA GERAL (visual papel rasgado / event style) ===== */
+:root {
+    --paper: #efe3c3;
+    --paper-dark: #d7c49b;
+    --ink: #201914;
+}
+
+body {
+    background-image:
+        radial-gradient(circle at 15% 10%, rgba(255, 208, 90, 0.22), transparent 30%),
+        radial-gradient(circle at 85% 90%, rgba(255, 70, 85, 0.2), transparent 32%),
+        url('https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9tc0FZbjFLZG9Zbmg3THg5cE1ody5wbmcifQ:supercell:AjL67My6-d2z9WLXX-MO-U_mMxiKf6iefpj5wQHkMJ8?width=2400');
+}
+
+.vandal-box,
+.upcoming-item,
+.song-card,
+.playlist-card {
+    border-radius: 18px;
+    border-color: rgba(255,255,255,0.18);
+    box-shadow:
+        0 14px 30px rgba(0,0,0,0.35),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.vandal-box::after,
+.upcoming-item::after,
+.song-card::after,
+.playlist-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 14px;
+    background: linear-gradient(90deg, rgba(239,227,195,0.75), rgba(215,196,155,0.4));
+    clip-path: polygon(0 40%, 7% 58%, 14% 34%, 22% 64%, 30% 39%, 39% 61%, 48% 35%, 57% 66%, 66% 37%, 74% 62%, 83% 33%, 91% 59%, 100% 41%, 100% 100%, 0 100%);
+    opacity: 0.23;
+    pointer-events: none;
+}
+
+.title-spray {
+    letter-spacing: 5px;
+    text-shadow:
+        0 2px 0 rgba(0,0,0,0.25),
+        0 6px 20px rgba(255, 70, 85, 0.45);
+}
+
+.slowed-spray {
+    text-shadow: 0 4px 18px rgba(255,215,0,0.4);
+}
+
+.header-subtitle {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px dashed rgba(255, 215, 0, 0.45);
+    border-radius: 999px;
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    padding: 0.4rem 1rem;
+}
+
+#current-song-cover {
+    border-radius: 12px;
+    width: 92px;
+    height: 92px;
+}
+
+.controls {
+    gap: 0.9rem;
+}
+
+.spray-btn {
+    border-radius: 14px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(180deg, #ff6d79 0%, #ff3e50 100%);
+}
+
+.play-btn {
+    width: 66px;
+    height: 66px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffe17b 0%, #ffd43b 100%);
+}
+
+.utility-actions {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.8rem;
+}
+
+.utility-btn {
+    border: 1px solid rgba(255,255,255,0.24);
+    background: rgba(0,0,0,0.28);
+    color: var(--text-color);
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    cursor: pointer;
+    transition: 0.25s ease;
+    font-family: 'Lilita One', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.utility-btn:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.song-card.is-current-highlight {
+    animation: currentPulse 1.4s ease;
+}
+
+@keyframes currentPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,215,0,0.7); }
+    70% { box-shadow: 0 0 0 14px rgba(255,215,0,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); }
+}
+
+.song-card.upcoming {
+    background: repeating-linear-gradient(45deg, rgba(33,33,33,0.5), rgba(33,33,33,0.5) 10px, rgba(78,78,78,0.4) 10px, rgba(78,78,78,0.4) 20px);
+}
+
+@media (max-width: 640px) {
+    .utility-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .utility-btn {
+        width: 100%;
     }
 }
