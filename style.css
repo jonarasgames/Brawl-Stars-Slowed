@@ -137,7 +137,7 @@ body {
     padding: 1.5rem;
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .upcoming-item:hover {
@@ -286,7 +286,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5),
                 inset 0 0 10px rgba(255, 70, 85, 0.3);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .vandal-box::before {
@@ -396,7 +396,7 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -953,14 +953,31 @@ body {
 .playlist-card::after {
     content: '';
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -1px;
-    height: 14px;
-    background: linear-gradient(90deg, rgba(239,227,195,0.75), rgba(215,196,155,0.4));
-    clip-path: polygon(0 40%, 7% 58%, 14% 34%, 22% 64%, 30% 39%, 39% 61%, 48% 35%, 57% 66%, 66% 37%, 74% 62%, 83% 33%, 91% 59%, 100% 41%, 100% 100%, 0 100%);
-    opacity: 0.23;
+    left: -2px;
+    right: -2px;
+    bottom: calc(-14px + var(--tear-offset, 0px));
+    height: 24px;
+    background: linear-gradient(90deg, rgba(239,227,195,0.92), rgba(215,196,155,0.72));
+    clip-path: polygon(
+        0% var(--tear-y1, 36%),
+        8% var(--tear-y2, 62%),
+        15% var(--tear-y3, 30%),
+        23% var(--tear-y4, 68%),
+        31% var(--tear-y5, 34%),
+        39% var(--tear-y6, 64%),
+        47% var(--tear-y7, 32%),
+        55% var(--tear-y8, 70%),
+        63% var(--tear-y9, 30%),
+        72% var(--tear-y10, 66%),
+        82% var(--tear-y11, 28%),
+        91% var(--tear-y12, 68%),
+        100% var(--tear-y13, 34%),
+        100% 100%,
+        0 100%
+    );
+    opacity: 0.88;
     pointer-events: none;
+    filter: drop-shadow(0 -2px 1px rgba(0,0,0,0.3));
 }
 
 .title-spray {
@@ -1076,33 +1093,9 @@ body {
 }
 
 /* ===== Layout overhaul ===== */
-.hero-strip {
-    margin: 0.5rem auto 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
 
-.hero-copy p {
-    opacity: 0.9;
-    max-width: 620px;
-}
 
-.hero-chips {
-    display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-}
 
-.hero-chips span {
-    background: rgba(0,0,0,0.3);
-    border: 1px dashed rgba(255,255,255,0.3);
-    padding: 0.4rem 0.75rem;
-    border-radius: 999px;
-    font-size: 0.88rem;
-}
 
 .dashboard-layout {
     display: grid;
@@ -1145,3 +1138,5 @@ body {
         overflow: visible;
     }
 }
+
+.vandal-box, .upcoming-item, .song-card, .playlist-card { overflow: visible; }

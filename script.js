@@ -54,6 +54,34 @@ function setNetworkStatus(message = '', type = '') {
     domElements.networkStatus.className = `network-status ${type}`.trim();
 }
 
+function applyRandomTear(element) {
+    if (!element) return;
+
+    const points = [
+        ['--tear-y1', 24, 46],
+        ['--tear-y2', 52, 74],
+        ['--tear-y3', 22, 44],
+        ['--tear-y4', 50, 76],
+        ['--tear-y5', 20, 42],
+        ['--tear-y6', 50, 72],
+        ['--tear-y7', 24, 48],
+        ['--tear-y8', 52, 74],
+        ['--tear-y9', 22, 46],
+        ['--tear-y10', 50, 76],
+        ['--tear-y11', 20, 44],
+        ['--tear-y12', 50, 72],
+        ['--tear-y13', 24, 48]
+    ];
+
+    points.forEach(([name, min, max]) => {
+        const value = Math.floor(Math.random() * (max - min + 1)) + min;
+        element.style.setProperty(name, `${value}%`);
+    });
+
+    const offset = Math.floor(Math.random() * 7) - 3;
+    element.style.setProperty('--tear-offset', `${offset}px`);
+}
+
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -271,6 +299,7 @@ function renderPlaylists() {
             filterByPlaylist(playlist.id);
         });
         
+        applyRandomTear(playlistCard);
         domElements.playlistsContainer.appendChild(playlistCard);
         
         // Observar imagens para carregamento lazy
@@ -319,6 +348,7 @@ function renderSongs(filteredSongs = null) {
             });
         }
         
+        applyRandomTear(songCard);
         domElements.songsContainer.appendChild(songCard);
         
         // Observar imagem para carregamento lazy
@@ -391,6 +421,7 @@ function renderUpcomingReleases() {
             `}
         `;
         
+        applyRandomTear(upcomingItem);
         domElements.upcomingContainer.appendChild(upcomingItem);
         
         // Observar imagem para carregamento lazy
@@ -850,4 +881,5 @@ document.addEventListener('DOMContentLoaded', () => {
     updateVolumeUI();
     updateProgressBar();
     registerMediaSessionActions();
+    document.querySelectorAll('.vandal-box').forEach(applyRandomTear);
 });
