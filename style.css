@@ -1074,3 +1074,74 @@ body {
 .network-status.error {
     color: #ff8f8f;
 }
+
+/* ===== Layout overhaul ===== */
+.hero-strip {
+    margin: 0.5rem auto 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-copy p {
+    opacity: 0.9;
+    max-width: 620px;
+}
+
+.hero-chips {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.hero-chips span {
+    background: rgba(0,0,0,0.3);
+    border: 1px dashed rgba(255,255,255,0.3);
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 1.35fr 0.9fr;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.left-column .player-section,
+.left-column .filters-section,
+.right-column .countdown-section {
+    max-width: 100%;
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+.right-column .upcoming-grid {
+    grid-template-columns: 1fr;
+    max-height: 700px;
+    overflow: auto;
+    padding-right: 0.2rem;
+}
+
+.right-column .upcoming-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.right-column .upcoming-grid::-webkit-scrollbar-thumb {
+    background: rgba(255,70,85,0.6);
+    border-radius: 8px;
+}
+
+@media (max-width: 980px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .right-column .upcoming-grid {
+        max-height: none;
+        overflow: visible;
+    }
+}
