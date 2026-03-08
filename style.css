@@ -1057,3 +1057,20 @@ body {
         width: 100%;
     }
 }
+
+
+.network-status {
+    min-height: 1.2rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+}
+
+.network-status.warning {
+    color: #ffd43b;
+}
+
+.network-status.error {
+    color: #ff8f8f;
+}

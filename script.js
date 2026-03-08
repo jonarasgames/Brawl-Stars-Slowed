@@ -11,6 +11,13 @@ let shuffleHistory = [];
 let imageObserver = null;
 let currentFilterPlaylistId = 'all';
 let currentSearchTerm = '';
+let currentAudioRetry = null;
+
+const RETRY_CONFIG = {
+    fetch: { attempts: 4, delayMs: 900 },
+    image: { attempts: 5, delayMs: 450 },
+    audio: { attempts: 5, delayMs: 900 }
+};
 
 // Elementos DOM
 const domElements = {
@@ -36,8 +43,115 @@ const domElements = {
     searchBtn: document.getElementById('search-btn'),
     playlistFilter: document.getElementById('playlist-filter'),
     copySongBtn: document.getElementById('copy-song-btn'),
-    scrollCurrentBtn: document.getElementById('scroll-current-btn')
+    scrollCurrentBtn: document.getElementById('scroll-current-btn'),
+    networkStatus: document.getElementById('network-status')
 };
+
+function setNetworkStatus(message = '', type = '') {
+    if (!domElements.networkStatus) return;
+
+    domElements.networkStatus.textContent = message;
+    domElements.networkStatus.className = `network-status ${type}`.trim();
+}
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function withRetryParam(url, attempt) {
+    const separator = url.includes('?') ? '&' : '?';
+    return `${url}${separator}retry=${Date.now()}-${attempt}`;
+}
+
+async function fetchJsonWithRetry(url, attempts, delayMs) {
+    let lastError = null;
+
+    for (let attempt = 1; attempt <= attempts; attempt++) {
+        try {
+            setNetworkStatus(attempt > 1 ? `Tentando reconectar dados... (${attempt}/${attempts})` : '', attempt > 1 ? 'warning' : '');
+            const response = await fetch(withRetryParam(url, attempt), { cache: 'no-store' });
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            setNetworkStatus('');
+            return await response.json();
+        } catch (error) {
+            lastError = error;
+            if (attempt < attempts) {
+                await wait(delayMs * attempt);
+            }
+        }
+    }
+
+    setNetworkStatus('Falha ao carregar dados. Tente atualizar a página.', 'error');
+    throw lastError;
+}
+
+function loadImageWithRetry(img, url, fallback = null) {
+    if (!img || !url) return;
+
+    let attempt = 1;
+
+    const onError = () => {
+        if (attempt < RETRY_CONFIG.image.attempts) {
+            setNetworkStatus(`Recarregando capa... (${attempt}/${RETRY_CONFIG.image.attempts})`, 'warning');
+            attempt += 1;
+            setTimeout(() => {
+                img.src = withRetryParam(url, attempt);
+            }, RETRY_CONFIG.image.delayMs * attempt);
+            return;
+        }
+
+        setNetworkStatus('Não foi possível carregar algumas capas.', 'error');
+
+        if (fallback && img.src !== fallback) {
+            img.onerror = null;
+            img.src = fallback;
+        }
+    };
+
+    img.onerror = onError;
+    img.src = url;
+}
+
+function setAudioSourceWithRetry(url) {
+    if (!url) return;
+
+    setNetworkStatus('');
+
+    currentAudioRetry = {
+        url,
+        attempt: 1
+    };
+
+    domElements.audioPlayer.src = url;
+    domElements.audioPlayer.load();
+}
+
+function retryCurrentAudio() {
+    if (!currentAudioRetry) return;
+
+    if (currentAudioRetry.attempt >= RETRY_CONFIG.audio.attempts) {
+        setNetworkStatus('Falha para carregar áudio. Clique em próxima ou tente novamente.', 'error');
+        return;
+    }
+
+    currentAudioRetry.attempt += 1;
+    setNetworkStatus(`Recarregando áudio... (${currentAudioRetry.attempt}/${RETRY_CONFIG.audio.attempts})`, 'warning');
+    const retryAttempt = currentAudioRetry.attempt;
+    const retryUrl = withRetryParam(currentAudioRetry.url, retryAttempt);
+
+    setTimeout(() => {
+        domElements.audioPlayer.src = retryUrl;
+        domElements.audioPlayer.load();
+
+        if (isPlaying) {
+            domElements.audioPlayer.play().catch(() => {});
+        }
+
+        setNetworkStatus('');
+    }, RETRY_CONFIG.audio.delayMs * retryAttempt);
+}
 
 // Sistema de carregamento de imagens com Intersection Observer
 function initImageLoading() {
@@ -46,7 +160,7 @@ function initImageLoading() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    img.src = img.dataset.src;
+                    loadImageWithRetry(img, img.dataset.src);
                     img.classList.remove('lazy');
                     imageObserver.unobserve(img);
                 }
@@ -64,7 +178,7 @@ function observeImage(img) {
         imageObserver.observe(img);
     } else if (img.dataset.src) {
         // Fallback para navegadores sem suporte a IntersectionObserver
-        img.src = img.dataset.src;
+        loadImageWithRetry(img, img.dataset.src);
         img.classList.remove('lazy');
     }
 }
@@ -87,8 +201,7 @@ function preloadCriticalImages() {
 // Carregar dados do JSON
 async function loadData() {
     try {
-        const response = await fetch('musicas.json');
-        const data = await response.json();
+        const data = await fetchJsonWithRetry('musicas.json', RETRY_CONFIG.fetch.attempts, RETRY_CONFIG.fetch.delayMs);
         
         musicas = data.musicas || [];
         playlists = (data.playlists || []).map(playlist => ({
@@ -362,12 +475,13 @@ function loadSong(index) {
     domElements.currentSongArtist.textContent = song.artista;
     
     // Carregar imagem do player imediatamente (sem lazy loading)
-    domElements.currentSongCover.src = song.capa;
-    domElements.currentSongCover.onerror = function() {
-        this.src = 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400';
-    };
-    
-    domElements.audioPlayer.src = song.audio;
+    loadImageWithRetry(
+        domElements.currentSongCover,
+        song.capa,
+        'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400'
+    );
+
+    setAudioSourceWithRetry(song.audio);
     domElements.duration.textContent = formatTime(song.duracao);
     
     // Atualizar barra de progresso quando os metadados estiverem carregados
@@ -696,6 +810,9 @@ function setupEventListeners() {
     domElements.audioPlayer.addEventListener('loadedmetadata', () => {
         domElements.duration.textContent = formatTime(domElements.audioPlayer.duration);
     });
+
+    domElements.audioPlayer.addEventListener('error', retryCurrentAudio);
+    domElements.audioPlayer.addEventListener('stalled', retryCurrentAudio);
     
     // Pesquisa
     domElements.searchInput.addEventListener('keyup', (e) => {
