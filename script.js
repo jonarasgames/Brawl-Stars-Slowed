@@ -1108,6 +1108,12 @@ function updateVolumeUI() {
     domElements.volumeControl.style.background = `linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) ${volume * 100}%, var(--secondary-color) ${volume * 100}%)`;
 }
 
+function updateVolumeUI() {
+    const volume = Number(domElements.audioPlayer.volume);
+    domElements.volumeBtn.textContent = volume === 0 ? '🔇' : volume <= 0.4 ? '🔉' : '🔊';
+    domElements.volumeControl.style.background = `linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) ${volume * 100}%, var(--secondary-color) ${volume * 100}%)`;
+}
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
