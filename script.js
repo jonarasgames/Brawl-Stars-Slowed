@@ -749,8 +749,8 @@ function loadSong(index) {
         domElements.duration.textContent = formatTime(domElements.audioPlayer.duration || song.duracao);
     }
     
-    // Atualizar metadados globais
-    document.title = `${song.titulo} • Brawl Stars Slowed`;
+    // Atualizar metadados globais sem alterar o título fixo do site
+    document.title = 'Brawl Stars Slowed';
     setupMediaSession(song);
     syncHashWithCurrentSong();
 
