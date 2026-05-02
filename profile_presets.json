@@ -1,0 +1,17 @@
+{
+  "images": [
+    { "label": "Shelly", "url": "https://files.catbox.moe/ye5x4f.png" },
+    { "label": "Jae", "url": "https://files.catbox.moe/0re3yk.png" },
+    { "label": "Kenji", "url": "https://files.catbox.moe/lctl0j.png" },
+    { "label": "Alli", "url": "https://files.catbox.moe/3trfeg.png" },
+    { "label": "Kaze", "url": "https://files.catbox.moe/157ka6.png" }
+  ],
+  "titles": [
+    { "type": "normal", "title": "Mortis, o Magnífico", "image": "https://files.catbox.moe/strc5w.png" },
+    { "type": "normal", "title": "Caçador de Troféus", "image": "https://files.catbox.moe/r6znfn.png" },
+    { "type": "prestigio", "title": "Lenda de Starr Park", "image": "https://files.catbox.moe/lctl0j.png" },
+    { "type": "prestigio", "title": "Mestre do Showdown", "image": "https://files.catbox.moe/157ka6.png" },
+    { "type": "brawlpass", "title": "Estrela do Brawl Pass", "image": "https://files.catbox.moe/0re3yk.png" },
+    { "type": "brawlpass", "title": "Dono da Temporada", "image": "https://files.catbox.moe/3trfeg.png" }
+  ]
+}

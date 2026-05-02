@@ -19,6 +19,39 @@ const RETRY_CONFIG = {
     audio: { attempts: 5, delayMs: 900 }
 };
 
+// PERFIL (EDIÇÃO FÁCIL): altere somente estas listas para mudar opções para todos
+let PROFILE_IMAGE_PRESETS = [
+    { label: 'Shelly', url: 'https://files.catbox.moe/ye5x4f.png' },
+    { label: 'Jae', url: 'https://files.catbox.moe/0re3yk.png' },
+    { label: 'Kenji', url: 'https://files.catbox.moe/lctl0j.png' },
+    { label: 'Alli', url: 'https://files.catbox.moe/3trfeg.png' },
+    { label: 'Kaze', url: 'https://files.catbox.moe/157ka6.png' }
+];
+
+let PROFILE_TITLE_PRESETS = [
+    { type: 'normal', title: 'Mortis, o Magnífico', image: 'https://files.catbox.moe/strc5w.png' },
+    { type: 'normal', title: 'Caçador de Troféus', image: 'https://files.catbox.moe/r6znfn.png' },
+    { type: 'prestigio', title: 'Lenda de Starr Park', image: 'https://files.catbox.moe/lctl0j.png' },
+    { type: 'prestigio', title: 'Mestre do Showdown', image: 'https://files.catbox.moe/157ka6.png' },
+    { type: 'brawlpass', title: 'Estrela do Brawl Pass', image: 'https://files.catbox.moe/0re3yk.png' },
+    { type: 'brawlpass', title: 'Dono da Temporada', image: 'https://files.catbox.moe/3trfeg.png' }
+];
+
+async function loadProfilePresets() {
+    try {
+        const profileData = await fetchJsonWithRetry('profile_presets.json', RETRY_CONFIG.fetch.attempts, RETRY_CONFIG.fetch.delayMs);
+
+        if (Array.isArray(profileData.images) && profileData.images.length) {
+            PROFILE_IMAGE_PRESETS = profileData.images;
+        }
+        if (Array.isArray(profileData.titles) && profileData.titles.length) {
+            PROFILE_TITLE_PRESETS = profileData.titles;
+        }
+    } catch (error) {
+        console.warn('Usando presets padrão de perfil (falha ao carregar profile_presets.json).', error);
+    }
+}
+
 // Elementos DOM
 const domElements = {
     audioPlayer: document.getElementById('audio-player'),
@@ -44,7 +77,23 @@ const domElements = {
     playlistFilter: document.getElementById('playlist-filter'),
     copySongBtn: document.getElementById('copy-song-btn'),
     scrollCurrentBtn: document.getElementById('scroll-current-btn'),
-    networkStatus: document.getElementById('network-status')
+    networkStatus: document.getElementById('network-status'),
+    brandLogo: document.getElementById('brand-logo'),
+    profileTopBtn: document.getElementById('profile-top-btn'),
+    profileTopPhoto: document.getElementById('profile-top-photo'),
+    profileName: document.getElementById('profile-name'),
+    profileImageSelect: document.getElementById('profile-image-select'),
+    profileTitleSelect: document.getElementById('profile-title-select'),
+    profileTitleCustom: document.getElementById('profile-title-custom'),
+    profileFab: document.getElementById('profile-fab'),
+    profileDrawer: document.getElementById('profile-drawer'),
+    closeProfileBtn: document.getElementById('close-profile-btn'),
+    saveProfileBtn: document.getElementById('save-profile-btn'),
+    downloadProfileBtn: document.getElementById('download-profile-btn'),
+    profilePreviewPhoto: document.getElementById('profile-preview-photo'),
+    profilePreviewName: document.getElementById('profile-preview-name'),
+    profilePreviewTitle: document.getElementById('profile-preview-title'),
+    profilePreviewTitleImage: document.getElementById('profile-preview-title-image')
 };
 
 function setNetworkStatus(message = '', type = '') {
@@ -52,6 +101,216 @@ function setNetworkStatus(message = '', type = '') {
 
     domElements.networkStatus.textContent = message;
     domElements.networkStatus.className = `network-status ${type}`.trim();
+}
+
+
+function getSongIdFromHash() {
+    const hash = window.location.hash || '';
+    const match = hash.match(/^#song=(.+)$/);
+    return match ? decodeURIComponent(match[1]) : null;
+}
+
+function syncHashWithCurrentSong() {
+    const song = musicas[currentSongIndex];
+    if (!song) return;
+    const targetHash = `#song=${encodeURIComponent(song.id)}`;
+    if (window.location.hash !== targetHash) {
+        history.replaceState(null, '', `${window.location.pathname}${targetHash}`);
+    }
+}
+
+function applySongFromHash({ autoplay = false } = {}) {
+    const hashSongId = getSongIdFromHash();
+    if (!hashSongId) return false;
+
+    const index = musicas.findIndex(song => song.id === hashSongId);
+    if (index === -1 || isUpcoming(hashSongId)) return false;
+
+    currentSongIndex = index;
+    loadSong(currentSongIndex);
+    if (autoplay) playSong();
+    return true;
+}
+
+function applyThemeFromLogo() {
+    const img = domElements.brandLogo;
+    if (!img) return;
+
+    const work = () => {
+        try {
+            const canvas = document.createElement('canvas');
+            const size = 32;
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d', { willReadFrequently: true });
+            ctx.drawImage(img, 0, 0, size, size);
+            const data = ctx.getImageData(0, 0, size, size).data;
+
+            let bestSat = { s: -1, r: 255, g: 77, b: 95 };
+            let bestBright = { v: -1, r: 255, g: 216, b: 78 };
+
+            for (let i = 0; i < data.length; i += 4) {
+                const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+                if (a < 120) continue;
+                const max = Math.max(r, g, b);
+                const min = Math.min(r, g, b);
+                const sat = max === 0 ? 0 : (max - min) / max;
+                const val = max / 255;
+                if (sat > bestSat.s) bestSat = { s: sat, r, g, b };
+                if (val > bestBright.v) bestBright = { v: val, r, g, b };
+            }
+
+            const root = document.documentElement;
+            const primary = `rgb(${bestSat.r}, ${bestSat.g}, ${bestSat.b})`;
+            const accent = `rgb(${bestBright.r}, ${bestBright.g}, ${bestBright.b})`;
+            root.style.setProperty('--red', primary);
+            root.style.setProperty('--primary-color', primary);
+            root.style.setProperty('--yellow', accent);
+            root.style.setProperty('--accent-color', accent);
+        } catch (error) {
+            console.warn('Não foi possível aplicar paleta pela logo:', error);
+        }
+    };
+
+    if (img.complete) work();
+    else img.addEventListener('load', work, { once: true });
+}
+
+function getProfileStorage() {
+    try {
+        return JSON.parse(localStorage.getItem('bsProfile') || '{}');
+    } catch {
+        return {};
+    }
+}
+
+function populateProfilePresetOptions() {
+    if (domElements.profileImageSelect) {
+        domElements.profileImageSelect.innerHTML = PROFILE_IMAGE_PRESETS
+            .map(item => `<option value="${item.url}">${item.label}</option>`)
+            .join('');
+    }
+
+    if (domElements.profileTitleSelect) {
+        domElements.profileTitleSelect.innerHTML = PROFILE_TITLE_PRESETS
+            .map(item => `<option value="${item.type}|${item.title}|${item.image}">${item.type} • ${item.title}</option>`)
+            .join('');
+    }
+}
+
+function renderProfilePreview(profile) {
+    const typeLabels = {
+        normal: 'Normal do Brawler',
+        prestigio: 'Prestígio',
+        brawlpass: 'Brawl Pass'
+    };
+
+    const name = profile.name || 'Seu nome';
+    const titleType = profile.titleType || 'normal';
+    const titleText = profile.title || 'Mortis, o Magnífico';
+    const titleImage = profile.titleImage || 'https://files.catbox.moe/strc5w.png';
+    const photo = profile.photo || 'https://files.catbox.moe/ye5x4f.png';
+
+    if (domElements.profilePreviewPhoto) domElements.profilePreviewPhoto.src = photo;
+    if (domElements.profileTopPhoto) domElements.profileTopPhoto.src = photo;
+    if (domElements.profilePreviewName) domElements.profilePreviewName.textContent = name;
+    if (domElements.profilePreviewTitleImage) domElements.profilePreviewTitleImage.src = titleImage;
+    if (domElements.profilePreviewTitle) domElements.profilePreviewTitle.textContent = `${typeLabels[titleType] || typeLabels.normal} • ${titleText}`;
+}
+
+function saveProfileToStorage(profile) {
+    localStorage.setItem('bsProfile', JSON.stringify(profile));
+}
+
+function setupProfileSystem() {
+    if (!domElements.profileName) return;
+
+    populateProfilePresetOptions();
+
+    const stored = getProfileStorage();
+
+    if (domElements.profileName) domElements.profileName.value = stored.name || '';
+    if (domElements.profileImageSelect) domElements.profileImageSelect.value = stored.photo || domElements.profileImageSelect.value;
+
+    const defaultTitleValue = PROFILE_TITLE_PRESETS.length
+        ? `${PROFILE_TITLE_PRESETS[0].type}|${PROFILE_TITLE_PRESETS[0].title}|${PROFILE_TITLE_PRESETS[0].image}`
+        : 'normal|Mortis, o Magnífico|https://files.catbox.moe/strc5w.png';
+
+    const storedTitleValue = stored.titleType && stored.title ? `${stored.titleType}|${stored.title}|${stored.titleImage || 'https://files.catbox.moe/strc5w.png'}` : null;
+    if (domElements.profileTitleSelect) {
+        domElements.profileTitleSelect.value = storedTitleValue || defaultTitleValue;
+    }
+
+    if (domElements.profileTitleCustom) domElements.profileTitleCustom.value = stored.customTitle || '';
+
+    const profileFromInputs = () => {
+        const [presetType, presetTitle, presetTitleImage] = (domElements.profileTitleSelect?.value || defaultTitleValue).split('|');
+        const customTitle = domElements.profileTitleCustom?.value?.trim() || '';
+
+        return {
+            name: domElements.profileName?.value?.trim() || '',
+            photo: domElements.profileImageSelect?.value || '',
+            titleType: presetType || 'normal',
+            title: customTitle || presetTitle || 'Mortis, o Magnífico',
+            titleImage: presetTitleImage || 'https://files.catbox.moe/strc5w.png',
+            customTitle
+        };
+    };
+
+    const syncPreview = () => renderProfilePreview(profileFromInputs());
+    syncPreview();
+
+    domElements.profileName?.addEventListener('input', syncPreview);
+    domElements.profileImageSelect?.addEventListener('change', syncPreview);
+    domElements.profileTitleSelect?.addEventListener('change', syncPreview);
+    domElements.profileTitleCustom?.addEventListener('input', syncPreview);
+
+    domElements.saveProfileBtn?.addEventListener('click', () => {
+        const profile = profileFromInputs();
+        saveProfileToStorage(profile);
+        setNetworkStatus('Perfil salvo no navegador.', 'warning');
+        setTimeout(() => setNetworkStatus(''), 1500);
+    });
+
+    domElements.downloadProfileBtn?.addEventListener('click', () => {
+        const profile = profileFromInputs();
+        const blob = new Blob([JSON.stringify(profile, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `brawl-profile-${Date.now()}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+    });
+}
+
+function setupProfileDrawer() {
+    const open = () => {
+        domElements.profileDrawer?.classList.add('open');
+        domElements.profileDrawer?.setAttribute('aria-hidden', 'false');
+    };
+    const close = () => {
+        domElements.profileDrawer?.classList.remove('open');
+        domElements.profileDrawer?.setAttribute('aria-hidden', 'true');
+    };
+
+    const toggle = () => {
+        if (domElements.profileDrawer?.classList.contains('open')) close();
+        else open();
+    };
+
+    domElements.profileFab?.addEventListener('click', toggle);
+    domElements.profileTopBtn?.addEventListener('click', toggle);
+    domElements.closeProfileBtn?.addEventListener('click', close);
+}
+
+function setupClickFeedback() {
+    document.addEventListener('click', (event) => {
+        const target = event.target.closest('.ctrl, .ghost, .playlist-card, .song-card, .upcoming-item, .unlock-btn');
+        if (!target) return;
+        target.classList.add('clicked');
+        setTimeout(() => target.classList.remove('clicked'), 180);
+    });
 }
 
 function wait(ms) {
@@ -223,6 +482,7 @@ async function loadData() {
         if (firstAvailableSong) {
             currentSongIndex = musicas.indexOf(firstAvailableSong);
             loadSong(currentSongIndex);
+            applySongFromHash();
         }
     } catch (error) {
         console.error('Erro ao carregar dados:', error);
@@ -489,9 +749,10 @@ function loadSong(index) {
         domElements.duration.textContent = formatTime(domElements.audioPlayer.duration || song.duracao);
     }
     
-    // Atualizar metadados globais
-    document.title = `${song.titulo} • Brawl Stars Slowed`;
+    // Atualizar metadados globais sem alterar o título fixo do site
+    document.title = 'Brawl Stars Slowed';
     setupMediaSession(song);
+    syncHashWithCurrentSong();
 
     // Adicionar efeito de spray
     addSprayEffect();
@@ -713,6 +974,10 @@ function copyCurrentSongLink() {
 
     if (navigator.clipboard?.writeText) {
         navigator.clipboard.writeText(songUrl);
+        setNetworkStatus('Link da música copiado.', 'warning');
+        setTimeout(() => setNetworkStatus(''), 1200);
+    } else {
+        prompt('Copie o link da música:', songUrl);
     }
 }
 
@@ -834,6 +1099,13 @@ function setupEventListeners() {
     // Carregar imagens visíveis durante o scroll
     window.addEventListener('scroll', forceLoadVisibleImages);
     window.addEventListener('resize', forceLoadVisibleImages);
+    window.addEventListener('hashchange', () => applySongFromHash({ autoplay: false }));
+}
+
+function updateVolumeUI() {
+    const volume = Number(domElements.audioPlayer.volume);
+    domElements.volumeBtn.textContent = volume === 0 ? '🔇' : volume <= 0.4 ? '🔉' : '🔊';
+    domElements.volumeControl.style.background = `linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) ${volume * 100}%, var(--secondary-color) ${volume * 100}%)`;
 }
 
 function updateVolumeUI() {
@@ -850,4 +1122,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateVolumeUI();
     updateProgressBar();
     registerMediaSessionActions();
+    applyThemeFromLogo();
+    setupClickFeedback();
+    loadProfilePresets().finally(() => {
+        setupProfileSystem();
+        setupProfileDrawer();
+    });
 });

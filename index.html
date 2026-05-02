@@ -2,131 +2,135 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-<link rel="icon" href="https://files.catbox.moe/strc5w.png" type="image/jpg">
+    <link rel="icon" href="https://files.catbox.moe/strc5w.png" type="image/jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO -->
-    <meta name="description" content="Ouça as músicas oficiais do Brawl Stars em versão SLOWED + REVERB. Todas as trilhas sonoras do jogo em alta qualidade, 100% gratuitas!">
-    <meta name="author" content="Brawl Stars Slowed">
-    <!-- Open Graph (para redes sociais) -->
-    <meta property="og:title" content="Brawl Stars Slowed | Músicas Oficiais em Versão Relax">
-    <meta property="og:description" content="As melhores músicas do Brawl Stars em slowed + reverb. Perfect loop para estudar, relaxar ou curtir!">
-    <meta property="og:image" content="https://play-lh.googleusercontent.com/XIG2oOuxO-bQFVm-HuRmxUgWTnjRNdIAC408L7ajoQp9T2v0jLW1UI-5CSLrEnQepYVZIDE9IGdxUM_Y4Wbr=w240-h480-rw">
-    <meta property="og:url" content="https://jonarasgames.github.io/Brawl-Stars-Slowed/">
-    <meta property="og:type" content="website">
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Brawl Stars Slowed | Músicas Oficiais">
-    <meta name="twitter:description" content="Trilha sonora do Brawl Stars em versão slowed para você relaxar!">
-
-    <!-- Tag de verificação do Google Search Console -->
-    <meta name="google-site-verification" content="oBB9-v4rQnwhmiUzrPQYmxURDBKg_wsMOhhYLAG4edQ" />
+    <meta name="description" content="Player de músicas Brawl Stars slowed + reverb com playlists e lançamentos.">
     <title>Brawl Stars Slowed</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nougat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background-overlay"></div>
-    <div class="graffiti-overlay"></div>
-    
-    <header class="vandal-header">
-        <div class="ripped-paper-top"></div>
-        <h1 class="title-spray">BRAWL STARS <span class="slowed-spray">SLOWED</span></h1>
-        <p class="header-subtitle">As trilhas oficiais em versão slowed + reverb, organizadas por playlist.</p>
-        <div class="spray-drips"></div>
+    <div class="bg-overlay"></div>
+
+    <header class="topbar">
+        <div class="brand-wrap">
+            <img id="brand-logo" crossorigin="anonymous" src="https://files.catbox.moe/hq2ze8.png" alt="Logo Brawl Stars Slowed">
+        </div>
+        <button id="profile-top-btn" class="profile-top-btn" type="button" aria-label="Abrir perfil">
+            <img id="profile-top-photo" src="https://files.catbox.moe/ye5x4f.png" alt="Perfil">
+        </button>
     </header>
 
-    <main class="main-content">
-        
-
-        <section class="dashboard-layout">
-            <div class="left-column">
-                <section class="player-section">
-                    <div class="player-container vandal-box">
-                        <div class="player-controls">
-                            <div class="song-info">
-                                <img id="current-song-cover" src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400" alt="Capa da música">
-                                <div>
-                                    <h2 id="current-song-title">Nenhuma música selecionada</h2>
-                                    <p id="current-song-artist"></p>
-                                </div>
-                            </div>
-                            <div class="progress-container">
-                                <span id="current-time">0:00</span>
-                                <input type="range" id="progress-bar" class="progress-bar" value="0">
-                                <span id="duration">0:00</span>
-                            </div>
-                            <div class="controls">
-                                <button id="surprise-btn" class="spray-btn" title="Surpreender" aria-label="Tocar uma música aleatória">🎲</button>
-                                <button id="shuffle-btn" class="spray-btn" title="Aleatório" aria-label="Ativar modo aleatório">🔀</button>
-                                <button id="prev-btn" class="spray-btn" aria-label="Música anterior">⏮</button>
-                                <button id="play-btn" class="spray-btn play-btn" aria-label="Tocar">▶</button>
-                                <button id="next-btn" class="spray-btn" aria-label="Próxima música">⏭</button>
-                                <button id="repeat-btn" class="spray-btn" title="Repetir" aria-label="Ativar repetição">🔁</button>
-                                <button id="volume-btn" class="spray-btn" aria-label="Silenciar">🔊</button>
-                                <input type="range" id="volume-control" class="volume-control" min="0" max="1" step="0.1" value="0.7">
-                            </div>
-                            <p id="network-status" class="network-status" aria-live="polite"></p>
-                            <div class="utility-actions">
-                                <button id="copy-song-btn" class="utility-btn" type="button">🔗 Copiar link da música</button>
-                                <button id="scroll-current-btn" class="utility-btn" type="button">🎯 Ir para música atual</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="filters-section">
-                    <div class="search-container vandal-box">
-                        <input type="text" id="search-input" class="spray-input" placeholder="Pesquisar música...">
-                        <button id="search-btn" class="spray-btn">🔍</button>
-                    </div>
-                    <div class="filter-container vandal-box">
-                        <select id="playlist-filter" class="spray-select">
-                            <option value="all">Todas as playlists</option>
-                        </select>
-                    </div>
-                </section>
+    <main class="layout">
+        <section class="panel player-panel">
+            <div class="song-info">
+                <img id="current-song-cover" src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9ucnU0UVNQVlVkVEhvVERxMVpxdS5wbmcifQ:supercell:KyOaqu_1gL2vFJpzEd0AABww3GAZzF688azTXXapoEs?width=2400" alt="Capa da música">
+                <div>
+                    <h2 id="current-song-title">Nenhuma música selecionada</h2>
+                    <p id="current-song-artist"></p>
+                </div>
             </div>
 
-            <aside class="right-column">
-                <section class="countdown-section vandal-box">
-                    <h2 class="spray-title">PRÓXIMOS LANÇAMENTOS • AGENDA</h2>
-                    <p class="section-helper">Prévia dos próximos sons para conferir o layout e contagem.</p>
-                    <div id="upcoming-container" class="upcoming-grid">
-                        <!-- Lançamentos serão carregados aqui via JS -->
-                    </div>
-                </section>
-            </aside>
-        </section>
+            <div class="progress-row">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress-bar" class="progress-bar" value="0">
+                <span id="duration">0:00</span>
+            </div>
 
-        <section class="playlists-section">
-            <h2 class="spray-title">PLAYLISTS</h2>
-            <div class="playlists-container" id="playlists-container">
-                <!-- Playlists serão carregadas aqui via JS -->
+            <div class="controls">
+                <button id="surprise-btn" class="ctrl" title="Surpreender" aria-label="Tocar aleatória">🎲</button>
+                <button id="shuffle-btn" class="ctrl" title="Aleatório" aria-label="Aleatório">🔀</button>
+                <button id="prev-btn" class="ctrl" aria-label="Anterior">⏮</button>
+                <button id="play-btn" class="ctrl play" aria-label="Tocar">▶</button>
+                <button id="next-btn" class="ctrl" aria-label="Próxima">⏭</button>
+                <button id="repeat-btn" class="ctrl" title="Repetir" aria-label="Repetir">🔁</button>
+                <button id="volume-btn" class="ctrl" aria-label="Volume">🔊</button>
+                <input type="range" id="volume-control" class="volume-control" min="0" max="1" step="0.1" value="0.7">
+            </div>
+
+            <p id="network-status" class="network-status" aria-live="polite"></p>
+
+            <div class="actions">
+                <button id="copy-song-btn" class="ghost" type="button">🔗 Copiar link</button>
+                <button id="scroll-current-btn" class="ghost" type="button">🎯 Música atual</button>
             </div>
         </section>
 
-        <section class="songs-section">
-            <h2 class="spray-title">MÚSICAS</h2>
-            <div class="songs-container" id="songs-container">
-                <!-- Músicas serão carregadas aqui via JS -->
+        <aside class="panel upcoming-panel">
+            <h2 class="section-title">PRÓXIMOS LANÇAMENTOS</h2>
+            <div id="upcoming-container" class="upcoming-grid"></div>
+        </aside>
+
+        <section class="panel filters-panel">
+            <div class="search-wrap">
+                <input type="text" id="search-input" class="spray-input" placeholder="Pesquisar música...">
+                <button id="search-btn" class="ctrl">🔍</button>
             </div>
+            <select id="playlist-filter" class="spray-select">
+                <option value="all">Todas as playlists</option>
+            </select>
+        </section>
+
+        <section class="panel playlists-panel">
+            <h2 class="section-title">PLAYLISTS</h2>
+            <div class="playlists-container" id="playlists-container"></div>
+        </section>
+
+        <section class="panel songs-panel">
+            <h2 class="section-title">MÚSICAS</h2>
+            <div class="songs-container" id="songs-container"></div>
         </section>
     </main>
 
-    <footer class="vandal-footer">
-        <div class="ripped-paper-bottom"></div>
-        <p>© 2025 BRAWL STARS SLOWED | TODOS OS DIREITOS RESERVADOS A SUPERCELL OY
- Site não-oficial criado por fãs para fãs. Ouça as versões slowed e reverb das trilhas oficiais</p>
-        <div class="spray-tags">
-            <span>#SLOWED</span>
-            <span>#REVERB</span>
-            <span>#BRAWLSTARS</span>
+    <button id="profile-fab" class="profile-fab" type="button" aria-label="Abrir perfil">👤</button>
+
+    <aside id="profile-drawer" class="profile-drawer" aria-hidden="true">
+        <div class="profile-head">
+            <h2 class="section-title">PERFIL</h2>
+            <p class="profile-helper">Presets editáveis em <code>profile_presets.json</code>.</p>
+            <button id="close-profile-btn" class="ghost" type="button">✕</button>
         </div>
+
+        <div class="profile-grid">
+            <div class="profile-preview" id="profile-preview">
+                <img id="profile-preview-photo" src="https://files.catbox.moe/ye5x4f.png" alt="Foto do perfil">
+                <h3 id="profile-preview-name">Seu nome</h3>
+                <img id="profile-preview-title-image" src="https://files.catbox.moe/strc5w.png" alt="Imagem do título">
+                <p id="profile-preview-title">Normal do Brawler • Mortis, o Magnífico</p>
+            </div>
+
+            <div class="profile-form">
+                <label>Nome
+                    <input type="text" id="profile-name" placeholder="Seu nome">
+                </label>
+
+                <label>Imagem de perfil (preset)
+                    <select id="profile-image-select" class="spray-select"></select>
+                </label>
+
+
+                <label>Título do jogo (preset)
+                    <select id="profile-title-select" class="spray-select"></select>
+                </label>
+
+
+                <label>Título custom (opcional)
+                    <input type="text" id="profile-title-custom" placeholder="Ex: Guardião da Arena">
+                </label>
+
+                <div class="profile-actions">
+                    <button id="save-profile-btn" class="ghost" type="button">💾 Salvar</button>
+                    <button id="download-profile-btn" class="ghost" type="button">⬇️ Download</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <p>© 2025 BRAWL STARS SLOWED • Site de fã para fã</p>
     </footer>
 
     <audio id="audio-player"></audio>
-
     <script src="script.js"></script>
 </body>
 </html>
